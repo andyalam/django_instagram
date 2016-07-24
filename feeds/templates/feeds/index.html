@@ -2,6 +2,15 @@
 
 {% block content %}
     <div class="row">
-        home
+        Welcome to DjangoIG {{ user.username }}
+        {% if user.is_authenticated %}
+            <a href="{% url 'signout' %}">
+                <button class="btn btn-default">Signout</button>
+            </a>
+        {% else %}
+            <a href="{% url 'login' %}">
+                <button class="btn btn-default">Login</button>
+            </a>
+        {% endif %}
     </div>
 {% endblock %}
