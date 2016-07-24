@@ -1,5 +1,17 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
-def login(request):
-    return render(request, 'feeds/login.html')
+from . forms import UserCreateForm
+
+def signup(request):
+    form = UserCreateForm()
+
+    if request.method == 'POST':
+        form = UserCreateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('signup_success')
+
+    return render(request, 'feeds/signup.html', {
+        'form': form
+    })

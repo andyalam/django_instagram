@@ -11,16 +11,17 @@
   </head>
   <body>
 
+
+    <div class="content-wrapper">
+        {% block content %}
+        {% endblock %}
+    </div>
+
     {% include 'feeds/nav.html' %}
 
-    {% block content %}
-    {% endblock %}
 
-
-
-
-    <script src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     {% block extrascript %}
     {% endblock %}
 
