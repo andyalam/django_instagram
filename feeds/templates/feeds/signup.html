@@ -3,24 +3,36 @@
 {% load staticfiles %}
 
 {% block content %}
-    <form action="/" method="post" enctype="multipart/form-data">
+    <form action="{% url 'signup' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <label>
-            {{ form.username.label }}
-            {{ form.username }}
-        </label>
-        <label>
-            {{ form.email.label }}
-            {{ form.email }}
-        </label>
-        <label>
-            {{ form.password1.label }}
-            {{ form.password1 }}
-        </label>
-        <label>
-            {{ form.password2.label }}
-            {{ form.password2 }}
-        </label>
+        <div class="form-group">
+            <label>
+                {{ form.username.label }}
+                {{ form.username }}
+                {{ form.username.errors }}
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                {{ form.email.label }}
+                {{ form.email }}
+                {{ form.email.errors }}
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                {{ form.password1.label }}
+                {{ form.password1 }}
+                {{ form.password1.errors }}
+            </label>
+        </div>
+        <div class="form-group">
+            <label>
+                {{ form.password2.label }}
+                {{ form.password2 }}
+                {{ form.password2.errors }}
+            </label>
+        </div>
 
         <button class="btn btn-default">Submit</button>
     </form>

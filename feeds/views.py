@@ -3,6 +3,11 @@ from django.http import HttpResponse
 
 from . forms import UserCreateForm
 
+
+def index(request):
+    return render(request, 'feeds/index.html')
+
+
 def signup(request):
     form = UserCreateForm()
 
@@ -15,3 +20,7 @@ def signup(request):
     return render(request, 'feeds/signup.html', {
         'form': form
     })
+
+
+def signup_success(request):
+    return render(request, 'feeds/signup_success.html')
