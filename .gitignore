@@ -90,3 +90,5 @@ ENV/
 
 .idea/
 .sass-cache/
+
+static/posts/
