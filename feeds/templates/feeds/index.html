@@ -12,5 +12,10 @@
                 <button class="btn btn-default">Login</button>
             </a>
         {% endif %}
+
+        {% for post in posts %}
+            <img src="/{{ post.image.url }}">
+        {% endfor %}
+
     </div>
 {% endblock %}

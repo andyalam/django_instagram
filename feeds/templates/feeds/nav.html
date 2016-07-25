@@ -10,7 +10,11 @@
           </div>
           <div id="navbar-main" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                  <li><a >Placeholder</a></li>
+                  {% if user.is_authenticated %}
+                      <li><a href="{% url 'signout' %}">Signout</a></li>
+                  {% else %}
+                      <li><a href="{% url 'login' %}">Login</a></li>
+                  {% endif %}
               </ul>
           </div>
       </div>
