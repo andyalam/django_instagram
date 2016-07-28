@@ -1,21 +1,29 @@
 {% extends 'feeds/base.html' %}
 
+{% load static %}
+
 {% block content %}
-    <div class="row">
-        Welcome to DjangoIG {{ user.username }}
-        {% if user.is_authenticated %}
-            <a href="{% url 'signout' %}">
-                <button class="btn btn-default">Signout</button>
-            </a>
-        {% else %}
-            <a href="{% url 'login' %}">
-                <button class="btn btn-default">Login</button>
-            </a>
-        {% endif %}
-
+    <div class="cards-listing">
         {% for post in posts %}
-            <img src="{{ post.image.url }}">
-        {% endfor %}
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="card">
+                        <div class="card__panel-head">
+                            <div class="poster__info">
+                                <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
+                                <a href="" class="poster__name">Andy</a>
+                                <span class="poster__timestamp">
+                                    11h
+                                </span>
+                            </div>
+                        </div>
+                        <img class="card__main-image" src="{{ post.image.url }}">
+                        <div class="card__panel-head">
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}

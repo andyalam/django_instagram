@@ -10,7 +10,7 @@ from imagekit.processors import ResizeToFill
 
 class IGPost(models.Model):
     image = ProcessedImageField(upload_to='posts',
-                                processors=[ResizeToFill(200,200)],
+                                #processors=[ResizeToFill(200,200)],
                                 format='JPEG',
-                                options={ 'quality': 60})
+                                options={ 'quality': 100})
 
