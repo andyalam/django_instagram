@@ -1,50 +1,10 @@
+@import 'partials/variables';
+@import 'partials/components';
+@import 'partials/nav';
+@import 'partials/cards';
+
 .content-wrapper {
   margin-top: 60px;
   margin-bottom: 60px;
   background-color: #fafafa;
-}
-
-.navbar {
-  background-color: #fff;
-}
-
-.cards-listing {
-  max-width: 600px;
-  width: 100%;
-  margin: 20px auto;
-}
-
-.card {
-  background-color: #fff;
-  margin-bottom: 50px;
-  border: 1px solid #efefef;
-  border-radius: 3px;
-  &__panel-head {
-    padding: 14px 20px 12px;
-    .poster {
-      &__profilepic {
-        border-radius: 100%;
-        max-width: 30px;
-        max-height: 30px;
-        margin-right: 5px;
-      }
-      &__name {
-        color: #262626;
-        &:hover {
-          color: #262626 * 2;
-          text-decoration: none;
-        }
-      }
-      &__timestamp {
-        float: right;
-        color: #999;
-      }
-    }
-  }
-  &__main-image {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
 }

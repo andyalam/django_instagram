@@ -6,21 +6,19 @@
     <div class="cards-listing">
         {% for post in posts %}
             <div class="row">
-                <div class="col-xs-12">
-                    <div class="card">
-                        <div class="card__panel-head">
-                            <div class="poster__info">
-                                <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
-                                <a href="" class="poster__name">Andy</a>
-                                <span class="poster__timestamp">
-                                    11h
-                                </span>
-                            </div>
+                <div class="card">
+                    <div class="card__panel-head">
+                        <div class="poster__info">
+                            <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
+                            <a href="" class="poster__name">Andy</a>
+                            <span class="poster__timestamp">
+                                11h
+                            </span>
                         </div>
-                        <img class="card__main-image" src="{{ post.image.url }}">
-                        <div class="card__panel-head">
+                    </div>
+                    <img class="card__main-image" src="{{ post.image.url }}">
+                    <div class="card__panel-head">
 
-                        </div>
                     </div>
                 </div>
             </div>
