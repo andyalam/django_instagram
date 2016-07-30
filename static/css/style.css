@@ -31,8 +31,30 @@
     max-width: 100%;
     height: auto;
     display: block; }
-    .card__main-image:hover {
-      cursor: pointer; }
+  .card__panel-body {
+    padding: 20px; }
+    .card__panel-body .likes {
+      font-weight: bold;
+      margin-bottom: 5px; }
+    .card__panel-body .view-more {
+      color: #333; }
+      .card__panel-body .view-more:hover {
+        color: #4d4d4d;
+        text-decoration: none; }
+
+.comment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .comment-list__comment {
+    margin-top: 5px;
+    margin-bottom: 5px; }
+    .comment-list__comment .user {
+      color: #333;
+      font-weight: bold; }
+      .comment-list__comment .user:hover {
+        color: #4d4d4d;
+        text-decoration: none; }
 
 .content-wrapper {
   margin-top: 60px;

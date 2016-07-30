@@ -36,8 +36,29 @@
     max-width: 100%;
     height: auto;
     display: block;
-    &:hover {
-      cursor: pointer;
+  }
+  &__panel-body {
+    padding: 20px;
+    .likes {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .view-more {
+      @include grey-anchor();
     }
   }
 }
+
+.comment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    &__comment {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      .user {
+        @include grey-anchor();
+        font-weight: bold;
+      }
+    }
+  }
