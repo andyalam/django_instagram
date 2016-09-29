@@ -5,8 +5,14 @@ from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 
 
+class UserProfile(models.Model):
+    user = models.ForeignKey(User)
+    followers = models.ManyToManyField('UserProfile', related_name="followers_profile")
+    following = models.ManyToManyField('UserProfile', related_name="following_profile")
+
 class IGPost(models.Model):
     user = models.ForeignKey(User, null=True, blank=True)
+    profile = models.ForeignKey(UserProfile, null=True, blank=True)
     title = models.CharField(max_length=100)
     image = ProcessedImageField(upload_to='posts',
                                 #processors=[ResizeToFill(200,200)],
