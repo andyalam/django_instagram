@@ -8,7 +8,7 @@ from . models import IGPost
 
 
 def index(request):
-    posts = IGPost.objects.all()
+    posts = IGPost.objects.all().reverse()
     return render(request, 'feeds/index.html', {
         'posts': posts
     })

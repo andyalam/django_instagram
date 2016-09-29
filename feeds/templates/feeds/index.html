@@ -4,21 +4,25 @@
 
 {% block content %}
     <div class="cards-listing">
-        {% for post in posts %}
+        {% for post in posts reversed %}
             <div class="row">
                 <div class="card">
                     <div class="card__panel-head">
                         <div class="poster__info">
                             <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
-                            <a href="" class="poster__name">Andy</a>
+                            <a href="" class="poster__name">{{ post.user.username }}</a>
                             <span class="poster__timestamp">
-                                11h
+                                {{ post.posted_on }}
                             </span>
                         </div>
                     </div>
                     <img class="card__main-image" src="{{ post.image.url }}">
                     <div class="card__panel-body">
-                        <div class="likes">54 likes</div>
+                        <div class="likes">
+                          {% if post.get_number_of_likes %}
+                            {{ post.get_number_of_likes }} like{% if post.get_number_of_likes > 1 %}s{% endif %}
+                          {% endif %}
+                        </div>
                         <a class="view-more" href="">view all 5 comments</a>
                         <ul class="comment-list">
                             <li class="comment-list__comment"><a class="user" href="">SomeUser</a> <span class="comment"> Static!</span></li>
