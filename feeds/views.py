@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from . forms import UserCreateForm
-from . models import IGPost
+from . models import UserProfile, IGPost, Comment, Like
 
 
 def index(request):
@@ -43,6 +43,7 @@ def login_user(request):
         'form': form
     })
 
+
 def signout(request):
     logout(request)
     return redirect('index')
@@ -50,3 +51,10 @@ def signout(request):
 
 def signup_success(request):
     return render(request, 'feeds/signup_success.html')
+
+
+def profile(request, username):
+    context = {
+        'username': username
+    }
+    return render(request, 'feeds/profile.html', context)

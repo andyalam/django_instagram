@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^login/$', views.login_user, name='login'),
     url(r'^signout/$', views.signout, name='signout'),
     url(r'^signup_success/$', views.signup_success, name='signup_success'),
+    url(r'^profile/(?P<username>[\w\-]+)/$', views.profile, name='profile'),
     url(r'^$', views.index, name='index'),
 ]
