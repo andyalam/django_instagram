@@ -23,11 +23,11 @@
                             {{ post.get_number_of_likes }} like{% if post.get_number_of_likes > 1 %}s{% endif %}
                           {% endif %}
                         </div>
-                        <a class="view-more" href="">view all 5 comments</a>
+                        <!--<a class="view-more">view all 5 comments</a>-->
                         <ul class="comment-list">
-                            <li class="comment-list__comment"><a class="user" href="">SomeUser</a> <span class="comment"> Static!</span></li>
-                            <li class="comment-list__comment"><a class="user" href="">SomeUser</a> <span class="comment"> Static!</span></li>
-                            <li class="comment-list__comment"><a class="user" href="">SomeUser</a> <span class="comment"> Static!</span></li>
+                          {% for comment in post.comment_set.all %}
+                            <li class="comment-list__comment"><a class="user">{{ comment.user.username }}</a> <span class="comment">{{ comment.comment }}</span></li>
+                          {% endfor %}
                         </ul>
                         <div class="comment-input">
 
