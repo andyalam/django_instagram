@@ -92,4 +92,3 @@ ENV/
 .sass-cache/
 
 static/posts/
-media/
