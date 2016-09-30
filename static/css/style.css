@@ -1,3 +1,11 @@
+body {
+  background-color: #fafafa; }
+
+.content-wrapper {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background-color: #fafafa; }
+
 .navbar {
   background-color: #fff; }
 
@@ -17,6 +25,8 @@
       border-radius: 100%;
       max-width: 30px;
       max-height: 30px;
+      width: 30px;
+      height: 30px;
       margin-right: 5px; }
     .card__panel-head .poster__name {
       color: #262626; }
@@ -56,9 +66,12 @@
         color: #4d4d4d;
         text-decoration: none; }
 
-.content-wrapper {
-  margin-top: 60px;
-  margin-bottom: 60px;
-  background-color: #fafafa; }
+.profile-container {
+  max-width: 975px;
+  padding: 60px 20px 0;
+  margin: 0 auto; }
+  @media screen and (max-width: 992px) {
+    .profile-container {
+      padding: 60px 0; } }
 
 /*# sourceMappingURL=style.css.map */

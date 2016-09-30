@@ -10,7 +10,11 @@
                     <div class="card__panel-head">
                         <div class="poster__info">
                             <a href="{% url 'profile' post.user.username %}" class="poster__name">
-                              <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
+                              {% if post.profile.profile_pic %}
+                                <img class="poster__profilepic" src="{{ post.profile.profile_pic.url }}">
+                              {% else %}
+                                <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
+                              {% endif %}
                               {{ post.user.username }}
                             </a>
                             <span class="poster__timestamp">

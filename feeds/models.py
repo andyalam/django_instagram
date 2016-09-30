@@ -15,6 +15,14 @@ class UserProfile(models.Model):
                                         related_name="following_profile",
                                         null=True,
                                         blank=True)
+    profile_pic = ProcessedImageField(upload_to='profile_pics',
+                                format='JPEG',
+                                options={ 'quality': 100},
+                                null=True,
+                                blank=True)
+
+    def __unicode__(self):
+        return self.user.username
 
 class IGPost(models.Model):
     user = models.ForeignKey(User, null=True, blank=True)
@@ -39,7 +47,13 @@ class Comment(models.Model):
     comment = models.CharField(max_length=100)
     posted_on = models.DateTimeField()
 
+    def __unicode__(self):
+        return self.comment
+
 
 class Like(models.Model):
     post = models.ForeignKey('IGPost')
     user = models.OneToOneField(User)
+
+    def __unicode__(self):
+        return 'Like: ' + self.user.username + ' ' + self.post.title

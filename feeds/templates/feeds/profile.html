@@ -3,12 +3,15 @@
 {% load static %}
 
 {% block content %}
-  {{ user.username }}<br>
-  {{ user.email }}<br>
-  {{ profile.user.username }}<br>
-  {{ profile.followers.count }}
-  {{ profile.following.count }}<br>
-  {% for post in user.igpost_set.all %}
-    {{ post }}
-  {% endfor %}
+<div class="profile-container">
+    {{ user.username }}<br>
+    {{ user.email }}<br>
+    {{ profile.user.username }}<br>
+    {{ profile.followers.count }}
+    {{ profile.following.count }}<br>
+    {% for post in user.igpost_set.all %}
+      {{ post }}
+    {% endfor %}
+
+</div>
 {% endblock %}
