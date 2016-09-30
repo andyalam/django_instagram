@@ -14,12 +14,22 @@
         {% endif %}
       </div>
       <div class="col-xs-8 right">
-        <h1 class="username">{{ user.username }}</h1>
-        <a class="edit-profile">Edit Profile</a>
-        {{ profile.user.first }}<br>
-        {{ user.igpost_set.count }}
-        {{ profile.followers.count }}
-        {{ profile.following.count }}<br>
+        <div class="name-buttons">
+          <h1 class="username">{{ user.username }}</h1>
+          <a>
+            <button class="edit-profile">Edit Profile</button>
+          </a>
+          <div class="options-bubbles">
+            <p class="bubble"></p>
+            <p class="bubble"></p>
+            <p class="bubble"></p>
+          </div>
+        </div>
+        <ul class="stats">
+            <li class="stats__count"><span>{{ user.igpost_set.count }}</span> Posts</li>
+            <a><li class="stats__count"><span>{{ profile.followers.count }}</span> Followers</li></a>
+            <a><li class="stats__count"><span>{{ profile.following.count }}</span> Following</li></a>
+        </ul>
       </div>
     </div>
   </div>

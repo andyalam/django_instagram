@@ -12,8 +12,37 @@
     .left {
       text-align: center;
     }
+    h1, .edit-profile, .options-bubble {
+      vertical-align: middle;
+    }
     h1 {
       display: inline-block;
+      margin: 0;
+    }
+    .edit-profile {
+      margin-left: 20px;
+      margin-right: 11px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #999;
+      border: 1px solid #999;
+      border-radius: 3px;
+      padding: 0 11px;
+      line-height: 28px;
+      background-color: #fff;
+      &:hover {
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+    .options-bubbles {
+      p { vertical-align: middle; }
+    }
+    .edit-profile, .options-bubbles {
+      margin-top: 5px;
+    }
+    .name-buttons {
+      margin-bottom: 20px;
     }
   }
 
@@ -21,5 +50,26 @@
     > .row > .col-xs-4 {
       padding: 13px;
     }
+  }
+}
+
+.stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  > * {
+    font-size: 17px;
+    color: #262626;
+  }
+  .stats__count {
+    display: inline-block;
+    margin-right: 40px;
+    span {
+      font-weight: bold;
+    }
+  }
+  a:hover {
+    color: #262626;
+    cursor: pointer;
   }
 }

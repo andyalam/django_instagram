@@ -1,6 +1,9 @@
 body {
   background-color: #fafafa; }
 
+a:hover {
+  text-decoration: none; }
+
 .content-wrapper {
   margin-top: 60px;
   margin-bottom: 60px;
@@ -24,6 +27,18 @@ body {
     position: absolute;
     width: 100%;
     height: 100%; }
+
+.options-bubbles {
+  display: inline-block; }
+  .options-bubbles:hover {
+    cursor: pointer; }
+  .options-bubbles .bubble {
+    display: inline-block;
+    height: 5px;
+    width: 5px;
+    border: 1px solid #8f8f8f;
+    border-radius: 100%;
+    margin: 0; }
 
 .navbar {
   background-color: #fff; }
@@ -96,9 +111,48 @@ body {
     margin-bottom: 40px; }
     .profile__head .left {
       text-align: center; }
+    .profile__head h1, .profile__head .edit-profile, .profile__head .options-bubble {
+      vertical-align: middle; }
     .profile__head h1 {
-      display: inline-block; }
+      display: inline-block;
+      margin: 0; }
+    .profile__head .edit-profile {
+      margin-left: 20px;
+      margin-right: 11px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #999;
+      border: 1px solid #999;
+      border-radius: 3px;
+      padding: 0 11px;
+      line-height: 28px;
+      background-color: #fff; }
+      .profile__head .edit-profile:hover {
+        text-decoration: none;
+        cursor: pointer; }
+    .profile__head .options-bubbles p {
+      vertical-align: middle; }
+    .profile__head .edit-profile, .profile__head .options-bubbles {
+      margin-top: 5px; }
+    .profile__head .name-buttons {
+      margin-bottom: 20px; }
   .profile__body > .row > .col-xs-4 {
     padding: 13px; }
+
+.stats {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .stats > * {
+    font-size: 17px;
+    color: #262626; }
+  .stats .stats__count {
+    display: inline-block;
+    margin-right: 40px; }
+    .stats .stats__count span {
+      font-weight: bold; }
+  .stats a:hover {
+    color: #262626;
+    cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */
