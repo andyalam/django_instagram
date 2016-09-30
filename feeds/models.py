@@ -7,8 +7,14 @@ from imagekit.processors import ResizeToFill
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User)
-    followers = models.ManyToManyField('UserProfile', related_name="followers_profile")
-    following = models.ManyToManyField('UserProfile', related_name="following_profile")
+    followers = models.ManyToManyField('UserProfile',
+                                        related_name="followers_profile",
+                                        null=True,
+                                        blank=True)
+    following = models.ManyToManyField('UserProfile',
+                                        related_name="following_profile",
+                                        null=True,
+                                        blank=True)
 
 class IGPost(models.Model):
     user = models.ForeignKey(User, null=True, blank=True)

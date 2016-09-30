@@ -4,15 +4,17 @@
 
 {% block content %}
     <div class="cards-listing">
-        {% for post in posts reversed %}
+        {% for post in posts %}
             <div class="row">
                 <div class="card">
                     <div class="card__panel-head">
                         <div class="poster__info">
-                            <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
-                            <a href="" class="poster__name">{{ post.user.username }}</a>
+                            <a href="{% url 'profile' post.user.username %}" class="poster__name">
+                              <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
+                              {{ post.user.username }}
+                            </a>
                             <span class="poster__timestamp">
-                                {{ post.posted_on }}
+                                {{ post.posted_on|timesince }}
                             </span>
                         </div>
                     </div>
@@ -23,10 +25,21 @@
                             {{ post.get_number_of_likes }} like{% if post.get_number_of_likes > 1 %}s{% endif %}
                           {% endif %}
                         </div>
-                        <!--<a class="view-more">view all 5 comments</a>-->
                         <ul class="comment-list">
+                          <li class="comment-list__comment">
+                            <a class="user" href="{% url 'profile' post.user.username %}">
+                              {{ post.user.username }}
+                            </a>
+                            <span class="comment">{{ post.title }}</span>
+                          </li>
+                          <a class="view-more">view all 5 comments</a>
                           {% for comment in post.comment_set.all %}
-                            <li class="comment-list__comment"><a class="user">{{ comment.user.username }}</a> <span class="comment">{{ comment.comment }}</span></li>
+                            <li class="comment-list__comment">
+                              <a href="{% url 'profile' comment.user.username %}" class="user">
+                                {{ comment.user.username }}
+                              </a>
+                              <span class="comment">{{ comment.comment }}</span>
+                            </li>
                           {% endfor %}
                         </ul>
                         <div class="comment-input">

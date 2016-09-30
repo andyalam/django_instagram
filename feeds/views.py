@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
@@ -8,7 +9,7 @@ from . models import UserProfile, IGPost, Comment, Like
 
 
 def index(request):
-    posts = IGPost.objects.all().reverse()
+    posts = IGPost.objects.order_by('-posted_on')
     return render(request, 'feeds/index.html', {
         'posts': posts
     })
@@ -54,7 +55,12 @@ def signup_success(request):
 
 
 def profile(request, username):
+    user = User.objects.filter(username=username)[0]
+    profile = UserProfile.objects.filter(user=user)[0]
+
     context = {
-        'username': username
+        'username': username,
+        'user': user,
+        'profile': profile
     }
     return render(request, 'feeds/profile.html', context)

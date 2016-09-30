@@ -3,5 +3,12 @@
 {% load static %}
 
 {% block content %}
-  {{ username }}
+  {{ user.username }}<br>
+  {{ user.email }}<br>
+  {{ profile.user.username }}<br>
+  {{ profile.followers.count }}
+  {{ profile.following.count }}<br>
+  {% for post in user.igpost_set.all %}
+    {{ post }}
+  {% endfor %}
 {% endblock %}
