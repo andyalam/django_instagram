@@ -3,10 +3,6 @@
   padding: 60px 20px 0;
   margin: 0 auto;
 
-  @media screen and (max-width: 992px) {
-    padding: 60px 0;
-  }
-
   &__head {
     margin-bottom: 40px;
     .left {
@@ -29,7 +25,7 @@
       border-radius: 3px;
       padding: 0 11px;
       line-height: 28px;
-      background-color: #fff;
+      background-color: #fafafa;
       &:hover {
         text-decoration: none;
         cursor: pointer;
@@ -41,8 +37,14 @@
     .edit-profile, .options-bubbles {
       margin-top: 5px;
     }
+    .edit-mobile {
+      display: none;
+    }
     .name-buttons {
       margin-bottom: 20px;
+    }
+    .description {
+      font-size: 17px;
     }
   }
 
@@ -51,11 +53,81 @@
       padding: 13px;
     }
   }
+
+  .mobile-block {
+    clear: both;
+    padding: 20px 15px 10px;
+    * {
+      font-size: 14px;
+    }
+    .description {
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #ccc;
+      p { margin: 0; }
+    }
+    .stats {
+      text-align: center;
+      &__count {
+        line-height: 13px;
+        margin-right: 0;
+        color: #999;
+        span {
+          color: #262626;
+        }
+      }
+    }
+  }
+
+
+  @media screen and (max-width: 992px) {
+    padding: 60px 0;
+  }
+
+  @media screen and (max-width: $mobile) {
+    padding-top: 15px;
+    &__head {
+      margin-bottom: 10px;
+      .picture-circle {
+        width: 75px;
+        height: 75px;
+        margin-top: 5px;
+      }
+      h1 {
+        font-size: 21px;
+        margin-right: 11px;
+      }
+      .name-buttons {
+        margin-bottom: 12px;
+      }
+      .edit-desktop {
+        display: none;
+      }
+      .edit-mobile {
+        display: block;
+        .edit-profile {
+          font-size: 14px;
+          margin: 0;
+          padding: 0 8px;
+          line-height: 24px;
+        }
+      }
+      .col-xs-4.left {
+        width: auto;
+      }
+    }
+
+    &__body > .row > .col-xs-4 {
+      padding: 2px;
+    }
+  }
 }
+
 
 .stats {
   list-style: none;
   margin: 0;
+  margin-bottom: 20px;
   padding: 0;
   > * {
     font-size: 17px;

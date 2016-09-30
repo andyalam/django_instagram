@@ -21,6 +21,8 @@ class UserProfile(models.Model):
                                 null=True,
                                 blank=True)
 
+    description = models.CharField(max_length=200, null=True, blank=True)
+
     def __unicode__(self):
         return self.user.username
 
