@@ -56,7 +56,14 @@
     <div class="row">
       {% for post in user.igpost_set.all %}
         <div class="col-xs-4">
-          <div class="picture-square" style="background-image: url({{ post.image.url }})"></div>
+          <div class="picture-square" style="background-image: url({{ post.image.url }})">
+            <a href="">
+              <div class="content">
+                <i class="fa fa-heart" aria-hidden="true"></i> {{ post.get_number_of_likes }}
+                <i class="fa fa-comment" aria-hidden="true"></i> {{ post.get_number_of_likes }}
+              </div>
+            </a>
+          </div>
         </div>
       {% endfor %}
     </div>

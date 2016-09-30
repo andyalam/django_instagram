@@ -24,9 +24,15 @@ a:hover {
     display: block;
     padding-bottom: 100%; }
   .picture-square .content {
+    display: none;
     position: absolute;
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); }
+  .picture-square:hover .content {
+    display: block; }
+    .picture-square:hover .content .fa {
+      color: #fff; }
 
 .options-bubbles {
   display: inline-block; }

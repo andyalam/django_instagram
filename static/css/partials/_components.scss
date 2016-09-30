@@ -29,9 +29,19 @@ a:hover {
     padding-bottom: 100%;
   }
   .content {
+    display: none;
     position: absolute;
     width: 100%;
     height: 100%;
+    background-color: rgba(0,0,0,0.3);
+  }
+  &:hover {
+    .content {
+      display: block;
+      .fa {
+        color: #fff;
+      }
+    }
   }
 }
 

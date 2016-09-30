@@ -9,8 +9,9 @@
               </button>
           </div>
           <div id="navbar-main" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
+              <ul class="nav navbar-nav navbar-right">
                   {% if user.is_authenticated %}
+                      <li><a href="{% url 'profile' user.username %}">Profile</a></li>
                       <li><a href="{% url 'signout' %}">Signout</a></li>
                   {% else %}
                       <li><a href="{% url 'login' %}">Login</a></li>

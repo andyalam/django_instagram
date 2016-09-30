@@ -39,6 +39,9 @@ class IGPost(models.Model):
     def get_number_of_likes(self):
         return self.like_set.count()
 
+    def get_number_of_comments(self):
+        return self.comment_set.count()
+
     def __unicode__(self):
         return self.title
 
