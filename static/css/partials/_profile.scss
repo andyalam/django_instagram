@@ -1,9 +1,25 @@
-.profile-container {
+.profile {
   max-width: 975px;
   padding: 60px 20px 0;
   margin: 0 auto;
 
   @media screen and (max-width: 992px) {
     padding: 60px 0;
+  }
+
+  &__head {
+    margin-bottom: 40px;
+    .left {
+      text-align: center;
+    }
+    h1 {
+      display: inline-block;
+    }
+  }
+
+  &__body {
+    > .row > .col-xs-4 {
+      padding: 13px;
+    }
   }
 }

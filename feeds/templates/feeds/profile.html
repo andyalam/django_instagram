@@ -3,15 +3,36 @@
 {% load static %}
 
 {% block content %}
-<div class="profile-container">
-    {{ user.username }}<br>
-    {{ user.email }}<br>
-    {{ profile.user.username }}<br>
-    {{ profile.followers.count }}
-    {{ profile.following.count }}<br>
-    {% for post in user.igpost_set.all %}
-      {{ post }}
-    {% endfor %}
+<div class="profile">
+  <div class="profile__head">
+    <div class="row">
+      <div class="col-xs-4 left">
+        {% if profile.profile_pic %}
+          <img class="picture-circle" src="{{ profile.profile_pic.url }}">
+        {% else %}
+          <img class="picture-circle" src="{% static 'images/profile_placeholder.jpg' %}">
+        {% endif %}
+      </div>
+      <div class="col-xs-8 right">
+        <h1 class="username">{{ user.username }}</h1>
+        <a class="edit-profile">Edit Profile</a>
+        {{ profile.user.first }}<br>
+        {{ user.igpost_set.count }}
+        {{ profile.followers.count }}
+        {{ profile.following.count }}<br>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile__body">
+    <div class="row">
+      {% for post in user.igpost_set.all %}
+        <div class="col-xs-4">
+          <div class="picture-square" style="background-image: url({{ post.image.url }})"></div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 
 </div>
 {% endblock %}

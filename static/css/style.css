@@ -6,6 +6,25 @@ body {
   margin-bottom: 60px;
   background-color: #fafafa; }
 
+.picture-circle {
+  border-radius: 100%;
+  width: 150px;
+  height: 150px; }
+
+.picture-square {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #fff; }
+  .picture-square:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%; }
+  .picture-square .content {
+    position: absolute;
+    width: 100%;
+    height: 100%; }
+
 .navbar {
   background-color: #fff; }
 
@@ -66,12 +85,20 @@ body {
         color: #4d4d4d;
         text-decoration: none; }
 
-.profile-container {
+.profile {
   max-width: 975px;
   padding: 60px 20px 0;
   margin: 0 auto; }
   @media screen and (max-width: 992px) {
-    .profile-container {
+    .profile {
       padding: 60px 0; } }
+  .profile__head {
+    margin-bottom: 40px; }
+    .profile__head .left {
+      text-align: center; }
+    .profile__head h1 {
+      display: inline-block; }
+  .profile__body > .row > .col-xs-4 {
+    padding: 13px; }
 
 /*# sourceMappingURL=style.css.map */
