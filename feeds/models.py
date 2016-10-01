@@ -23,7 +23,7 @@ class UserProfile(models.Model):
 
     description = models.CharField(max_length=200, null=True, blank=True)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.user.username
 
 class IGPost(models.Model):
@@ -42,7 +42,7 @@ class IGPost(models.Model):
     def get_number_of_comments(self):
         return self.comment_set.count()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
 
@@ -52,7 +52,7 @@ class Comment(models.Model):
     comment = models.CharField(max_length=100)
     posted_on = models.DateTimeField()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.comment
 
 
@@ -60,5 +60,5 @@ class Like(models.Model):
     post = models.ForeignKey('IGPost')
     user = models.OneToOneField(User)
 
-    def __unicode__(self):
+    def __str__(self):
         return 'Like: ' + self.user.username + ' ' + self.post.title

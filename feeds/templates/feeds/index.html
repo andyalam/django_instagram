@@ -15,7 +15,7 @@
                               {% else %}
                                 <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
                               {% endif %}
-                              {{ post.user.username }}
+                              {{ post.profile.user.username }}
                             </a>
                             <span class="poster__timestamp">
                                 {{ post.posted_on|timesince }}
@@ -32,7 +32,7 @@
                         <ul class="comment-list">
                           <li class="comment-list__comment">
                             <a class="user" href="{% url 'profile' post.user.username %}">
-                              {{ post.user.username }}
+                              {{ post.profile.user.username }}
                             </a>
                             <span class="comment">{{ post.title }}</span>
                           </li>
