@@ -30,9 +30,19 @@ a:hover {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3); }
   .picture-square:hover .content {
-    display: block; }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #fff; }
     .picture-square:hover .content .fa {
-      color: #fff; }
+      color: #fff;
+      margin-right: 5px; }
+      .picture-square:hover .content .fa:not(:first-of-type) {
+        margin-left: 25px; }
+        @media screen and (max-width: 724px) {
+          .picture-square:hover .content .fa:not(:first-of-type) {
+            margin-left: 10px; } }
 
 .options-bubbles {
   display: inline-block; }

@@ -37,9 +37,20 @@ a:hover {
   }
   &:hover {
     .content {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
       .fa {
         color: #fff;
+        margin-right: 5px;
+        &:not(:first-of-type) {
+          margin-left: 25px;
+          @media screen and (max-width: $mobile) {
+            margin-left: 10px;
+          }
+        }
       }
     }
   }
