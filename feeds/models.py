@@ -9,12 +9,10 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User)
     followers = models.ManyToManyField('UserProfile',
                                         related_name="followers_profile",
-                                        null=True,
-                                        blank=True)
+                                        default=0)
     following = models.ManyToManyField('UserProfile',
                                         related_name="following_profile",
-                                        null=True,
-                                        blank=True)
+                                        default=0)
     profile_pic = ProcessedImageField(upload_to='profile_pics',
                                 format='JPEG',
                                 options={ 'quality': 100},

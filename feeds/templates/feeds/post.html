@@ -1,0 +1,23 @@
+{% extends 'feeds/base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <form action="" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <label>
+        {{ form.title.label }}
+        {{ form.title }}
+        {{ form.title.errors }}
+      </label>
+      <label>
+        {{ form.image.label }}
+        {{ form.image }}
+        {{ form.image.errors }}
+      </label>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,6 +1,11 @@
 from django import forms
+from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+
+from imagekit.forms import ProcessedImageField
+
+from . models import IGPost
 
 
 class UserCreateForm(UserCreationForm):
@@ -16,3 +21,8 @@ class UserCreateForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+class PostPictureForm(ModelForm):
+    class Meta:
+        model = IGPost
+        fields = ['title', 'image']
