@@ -99,9 +99,10 @@ a:hover {
       float: right;
       color: #999; }
   .card__main-image {
-    width: 100%;
     max-width: 100%;
+    max-height: 400px;
     height: auto;
+    margin: 0 auto;
     display: block; }
   .card__panel-body {
     padding: 20px; }

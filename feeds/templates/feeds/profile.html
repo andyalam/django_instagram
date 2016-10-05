@@ -54,7 +54,7 @@
 
   <div class="profile__body">
     <div class="row">
-      {% for post in user.igpost_set.all %}
+      {% for post in user.igpost_set.all reversed %}
         <div class="col-xs-4">
           <div class="picture-square" style="background-image: url({{ post.image.url }})">
             <a href="">

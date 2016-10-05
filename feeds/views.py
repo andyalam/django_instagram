@@ -5,6 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.urls import reverse
 
 from imagekit.models import ProcessedImageField
 
@@ -77,15 +78,17 @@ def profile(request, username):
 
 
 def post_picture(request):
-    print(request.POST)
     if request.method == 'POST':
         form = PostPictureForm(data=request.POST, files=request.FILES)
         if form.is_valid():
+            profile = UserProfile.objects.get(user=request.user)
             post = IGPost(user=request.user,
+                          profile=profile,
                           title=request.POST['title'],
                           image=request.FILES['image'],
-                          posted_on=datetime.datetime.now)
-            form.save()
+                          posted_on=datetime.datetime.now())
+            post.save()
+            return redirect(reverse('profile', kwargs={'username': request.user.username}))
     else:
         form = PostPictureForm()
 
