@@ -77,6 +77,17 @@ def profile(request, username):
     return render(request, 'feeds/profile.html', context)
 
 
+def profile_settings(request, username):
+    user = User.objects.get(username=username)
+    if not user:
+        return redirect('index')
+
+    context = {
+        'user': user
+    }
+    return render(request, 'feeds/index.html')
+
+
 def post_picture(request):
     if request.method == 'POST':
         form = PostPictureForm(data=request.POST, files=request.FILES)

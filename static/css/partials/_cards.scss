@@ -50,6 +50,10 @@
       @include grey-anchor();
     }
   }
+  @media screen and (max-width: $mobile) {
+    border-right: none;
+    border-left: none;
+  }
 }
 
 .comment-list {
