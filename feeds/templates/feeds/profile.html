@@ -31,8 +31,8 @@
         <div class="desktop-block">
           <ul class="stats">
               <li class="stats__count"><span>{{ user.igpost_set.count }}</span> Posts</li>
-              <a><li class="stats__count"><span>{{ profile.followers.count }}</span> Followers</li></a>
-              <a><li class="stats__count"><span>{{ profile.following.count }}</span> Following</li></a>
+              <a><li class="stats__count"><span>{{ profile.get_number_of_followers }}</span> Followers</li></a>
+              <a><li class="stats__count"><span>{{ profile.get_number_of_following }}</span> Following</li></a>
           </ul>
           <div class="description">
             <p>{% if profile.description %}{{ profile.description }}{% endif %}</p>
@@ -45,8 +45,8 @@
         </div>
         <ul class="stats">
             <div class="col-xs-4"><li class="stats__count"><span>{{ user.igpost_set.count }}</span><br> posts</li></div>
-            <div class="col-xs-4"><a><li class="stats__count"><span>{{ profile.followers.count }}</span><br> followers</li></a></div>
-            <div class="col-xs-4"><a><li class="stats__count"><span>{{ profile.following.count }}</span><br> following</li></a></div>
+            <div class="col-xs-4"><a><li class="stats__count"><span>{{ profile.get_number_of_followers }}</span><br> followers</li></a></div>
+            <div class="col-xs-4"><a><li class="stats__count"><span>{{ profile.get_number_of_following }}</span><br> following</li></a></div>
         </ul>
       </div>
     </div>

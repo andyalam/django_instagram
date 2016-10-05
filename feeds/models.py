@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User, BaseUserManager, AbstractBaseUser, PermissionsMixin
 
@@ -21,6 +22,19 @@ class UserProfile(models.Model):
 
     description = models.CharField(max_length=200, null=True, blank=True)
 
+    def get_number_of_followers(self):
+        print(self.followers.count())
+        if self.followers.count():
+            return self.followers.count()
+        else:
+            return 0
+
+    def get_number_of_following(self):
+        if self.following.count():
+            return self.following.count()
+        else:
+            return 0
+
     def __str__(self):
         return self.user.username
 
@@ -32,7 +46,7 @@ class IGPost(models.Model):
                                 #processors=[ResizeToFill(200,200)],
                                 format='JPEG',
                                 options={ 'quality': 100})
-    posted_on = models.DateTimeField()
+    posted_on = models.DateTimeField(default=datetime.now)
 
     def get_number_of_likes(self):
         return self.like_set.count()

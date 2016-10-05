@@ -1,3 +1,4 @@
+import datetime
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
@@ -25,7 +26,10 @@ def signup(request):
         form = UserCreateForm(request.POST)
         if form.is_valid():
             form.save()
-            profile = UserProfile(user=request.user)
+
+            user = User.objects.get(username=request.POST['username'])
+            profile = UserProfile(user=user)
+            profile.save()
             return redirect('index')
 
     return render(request, 'feeds/signup.html', {
@@ -63,7 +67,7 @@ def profile(request, username):
     if not user:
         return redirect('index')
 
-    profile = UserProfile.objects.filter(user=user)
+    profile = UserProfile.objects.get(user=user)
     context = {
         'username': username,
         'user': user,
@@ -73,15 +77,14 @@ def profile(request, username):
 
 
 def post_picture(request):
-
+    print(request.POST)
     if request.method == 'POST':
-        print(request.FILES)
         form = PostPictureForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             post = IGPost(user=request.user,
-                          profile=request.user.userprofile,
                           title=request.POST['title'],
-                          image=request.FILES)
+                          image=request.FILES['image'],
+                          posted_on=datetime.datetime.now)
             form.save()
     else:
         form = PostPictureForm()
