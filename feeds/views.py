@@ -81,9 +81,7 @@ def post_picture(request):
     if request.method == 'POST':
         form = PostPictureForm(data=request.POST, files=request.FILES)
         if form.is_valid():
-            profile = UserProfile.objects.get(user=request.user)
             post = IGPost(user=request.user,
-                          profile=profile,
                           title=request.POST['title'],
                           image=request.FILES['image'],
                           posted_on=datetime.datetime.now())

@@ -7,7 +7,7 @@ from imagekit.processors import ResizeToFill
 
 
 class UserProfile(models.Model):
-    user = models.ForeignKey(User)
+    user = models.OneToOneField(User)
     followers = models.ManyToManyField('UserProfile',
                                         related_name="followers_profile",
                                         default=0)
@@ -40,7 +40,6 @@ class UserProfile(models.Model):
 
 class IGPost(models.Model):
     user = models.ForeignKey(User, null=True, blank=True)
-    profile = models.ForeignKey(UserProfile, null=True, blank=True)
     title = models.CharField(max_length=100)
     image = ProcessedImageField(upload_to='posts',
                                 #processors=[ResizeToFill(200,200)],
