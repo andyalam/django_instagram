@@ -1,5 +1,16 @@
 {% extends 'feeds/base.html' %}
 
+{% load static %}
+
 {% block content %}
-asdsa
+<div class="row">
+  <div class="col-xs-12">
+    {% if user.userprofile.profile_pic %}
+      <img class="picture-circle--medium" src="{{ user.userprofile.profile_pic.url }}">
+    {% else %}
+      <img class="picture-circle--medium" src="{% static 'images/profile_placeholder.jpg' %}">
+    {% endif %}
+    <h1 class="username">{{ user.username }}</h1>
+  </div>
+</div>
 {% endblock %}

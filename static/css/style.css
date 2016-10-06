@@ -9,10 +9,13 @@ a:hover {
   margin-bottom: 60px;
   background-color: #fafafa; }
 
-.picture-circle {
+.picture-circle, .picture-circle--medium {
   border-radius: 100%;
   width: 150px;
   height: 150px; }
+  .picture-circle--medium {
+    width: 36px;
+    height: 36px; }
 
 .picture-square {
   position: relative;
@@ -199,7 +202,7 @@ a:hover {
       padding-top: 15px; }
       .profile__head {
         margin-bottom: 10px; }
-        .profile__head .picture-circle {
+        .profile__head .picture-circle, .profile__head .picture-circle--medium {
           width: 75px;
           height: 75px;
           margin-top: 5px; }

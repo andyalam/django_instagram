@@ -5,7 +5,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.urls import reverse
+from django.core.urlresolvers import reverse
 
 from imagekit.models import ProcessedImageField
 
@@ -77,15 +77,16 @@ def profile(request, username):
     return render(request, 'feeds/profile.html', context)
 
 
+@login_required
 def profile_settings(request, username):
     user = User.objects.get(username=username)
-    if not user:
+    if request.user != user:
         return redirect('index')
 
     context = {
         'user': user
     }
-    return render(request, 'feeds/index.html')
+    return render(request, 'feeds/profile_settings.html')
 
 
 def post_picture(request):

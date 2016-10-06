@@ -16,6 +16,11 @@ a:hover {
   border-radius: 100%;
   width: 150px;
   height: 150px;
+  &--medium {
+    @extend .picture-circle;
+    width: 36px;
+    height: 36px;
+  }
 }
 
 .picture-square {

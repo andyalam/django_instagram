@@ -11,7 +11,7 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
   <body>
-
+    {% include 'feeds/nav.html' %}
 
     <div class="content-wrapper">
         <div class="container">
@@ -19,8 +19,6 @@
             {% endblock %}
         </div>
     </div>
-
-    {% include 'feeds/nav.html' %}
 
 
     <script type="text/javascript" src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
