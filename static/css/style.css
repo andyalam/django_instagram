@@ -136,6 +136,30 @@ a:hover {
         color: #4d4d4d;
         text-decoration: none; }
 
+#logoutModal.fade.in {
+  display: flex !important;
+  align-items: center; }
+#logoutModal .modal-content {
+  border-radius: 0; }
+#logoutModal ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+#logoutModal a {
+  width: 100%;
+  line-height: 50px;
+  border-bottom: 1px solid #dbdbdb;
+  color: #262626; }
+@media screen and (max-width: 768px) {
+  #logoutModal .modal-dialog {
+    width: 100%; } }
+@media screen and (max-width: 480px) {
+  #logoutModal .modal-dialog {
+    margin: 0; } }
+@media screen and (max-width: 415px) {
+  #logoutModal.fade.in {
+    align-items: flex-end; } }
+
 .profile {
   max-width: 975px;
   padding: 60px 20px 0;

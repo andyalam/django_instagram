@@ -69,3 +69,39 @@
     }
   }
 }
+
+#logoutModal {
+  &.fade.in {
+    display: flex !important;
+    align-items: center;
+  }
+  .modal-content {
+    border-radius: 0;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    width: 100%;
+    line-height: 50px;
+    border-bottom: 1px solid #dbdbdb;
+    color: #262626;
+  }
+  @media screen and (max-width: 768px) {
+    .modal-dialog {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .modal-dialog {
+      margin: 0;
+    }
+  }
+  @media screen and (max-width: 415px) {
+    &.fade.in {
+      align-items: flex-end;
+    }
+  }
+}
