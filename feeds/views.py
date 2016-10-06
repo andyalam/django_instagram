@@ -85,7 +85,7 @@ def profile_settings(request, username):
 
     if request.method == 'POST':
         print(request.POST)
-        form = ProfileEditForm(request.POST, instance=user.userprofile)
+        form = ProfileEditForm(request.POST, instance=user.userprofile, files=request.FILES)
         if form.is_valid():
             form.save()
             return redirect(reverse('profile', kwargs={'username': user.username}))

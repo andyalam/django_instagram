@@ -19,10 +19,17 @@
           <a class="edit-desktop">
             <button class="edit-profile">Edit Profile</button>
           </a>
-          <div class="options-bubbles">
+          <div class="options-bubbles" type="button" data-toggle="modal" data-target="#logoutModal">
             <p class="bubble"></p>
             <p class="bubble"></p>
             <p class="bubble"></p>
+          </div>
+          <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
           </div>
         </div>
         <a class="edit-mobile" href="{% url 'profile_settings' user.username %}">

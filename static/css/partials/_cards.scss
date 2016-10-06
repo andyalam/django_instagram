@@ -57,15 +57,15 @@
 }
 
 .comment-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    &__comment {
-      margin-top: 5px;
-      margin-bottom: 5px;
-      .user {
-        @include grey-anchor();
-        font-weight: bold;
-      }
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  &__comment {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    .user {
+      @include grey-anchor();
+      font-weight: bold;
     }
   }
+}
