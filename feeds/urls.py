@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^signup_success/$', views.signup_success, name='signup_success'),
     url(r'^profile/(?P<username>[-_\w.]+)/$', views.profile, name='profile'),
     url(r'^profile/(?P<username>[-_\w.]+)/edit/$', views.profile_settings, name='profile_settings'),
+    url(r'^post/(?P<pk>\d+)/$', views.post, name='post'),
     url(r'^post/$', views.post_picture, name='post_picture')
 ]

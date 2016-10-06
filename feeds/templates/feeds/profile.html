@@ -16,14 +16,16 @@
       <div class="col-xs-8 right">
         <div class="name-buttons">
           <h1 class="username">{{ user.username }}</h1>
-          <a class="edit-desktop" href="{% url 'profile_settings' user.username %}">
-            <button class="edit-profile">Edit Profile</button>
-          </a>
-          <div class="options-bubbles" type="button" data-toggle="modal" data-target="#logoutModal">
-            <p class="bubble"></p>
-            <p class="bubble"></p>
-            <p class="bubble"></p>
-          </div>
+          {% if request.user == user %}
+            <a class="edit-desktop" href="{% url 'profile_settings' user.username %}">
+              <button class="edit-profile">Edit Profile</button>
+            </a>
+            <div class="options-bubbles" type="button" data-toggle="modal" data-target="#logoutModal">
+              <p class="bubble"></p>
+              <p class="bubble"></p>
+              <p class="bubble"></p>
+            </div>
+          {% endif %}
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -36,9 +38,11 @@
             </div>
           </div>
         </div>
-        <a class="edit-mobile" href="{% url 'profile_settings' user.username %}">
-          <button class="edit-profile">Edit Profile</button>
-        </a>
+        {% if request.user == user %}
+          <a class="edit-mobile" href="{% url 'profile_settings' user.username %}">
+            <button class="edit-profile">Edit Profile</button>
+          </a>
+        {% endif %}
         <div class="desktop-block">
           <ul class="stats">
               <li class="stats__count"><span>{{ user.igpost_set.count }}</span> Posts</li>
@@ -68,7 +72,7 @@
       {% for post in user.igpost_set.all reversed %}
         <div class="col-xs-4">
           <div class="picture-square" style="background-image: url({{ post.image.url }})">
-            <a href="">
+            <a href="{% url 'post' post.pk %}">
               <div class="content">
                 <i class="fa fa-heart" aria-hidden="true"></i> {{ post.get_number_of_likes }}
                 <i class="fa fa-comment" aria-hidden="true"></i> {{ post.get_number_of_likes }}

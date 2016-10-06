@@ -115,4 +115,13 @@ def post_picture(request):
     context = {
         'form': form
     }
+    return render(request, 'feeds/post_picture.html', context)
+
+
+def post(request, pk):
+    post = IGPost.objects.get(pk=pk)
+    print(post)
+    context = {
+        'post': post
+    }
     return render(request, 'feeds/post.html', context)
