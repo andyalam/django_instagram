@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 
 from imagekit.models import ProcessedImageField
 
-from . forms import UserCreateForm, PostPictureForm
+from . forms import UserCreateForm, PostPictureForm, ProfileEditForm
 from . models import UserProfile, IGPost, Comment, Like
 
 
@@ -83,10 +83,20 @@ def profile_settings(request, username):
     if request.user != user:
         return redirect('index')
 
+    if request.method == 'POST':
+        print(request.POST)
+        form = ProfileEditForm(request.POST, instance=user.userprofile)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('profile', kwargs={'username': user.username}))
+    else:
+        form = ProfileEditForm(instance=user.userprofile)
+
     context = {
-        'user': user
+        'user': user,
+        'form': form
     }
-    return render(request, 'feeds/profile_settings.html')
+    return render(request, 'feeds/profile_settings.html', context)
 
 
 def post_picture(request):

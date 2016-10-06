@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 from imagekit.forms import ProcessedImageField
 
-from . models import IGPost
+from . models import IGPost, UserProfile
 
 
 class UserCreateForm(UserCreationForm):
@@ -27,3 +27,9 @@ class PostPictureForm(ModelForm):
     class Meta:
         model = IGPost
         fields = ['title', 'image']
+
+
+class ProfileEditForm(ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['profile_pic', 'description']
