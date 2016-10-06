@@ -99,6 +99,7 @@ def profile_settings(request, username):
     return render(request, 'feeds/profile_settings.html', context)
 
 
+@login_required
 def post_picture(request):
     if request.method == 'POST':
         form = PostPictureForm(data=request.POST, files=request.FILES)

@@ -10,7 +10,7 @@
           </div>
           <div id="navbar-main" class="navbar-collapse collapse">
               <ul class="nav navbar-nav navbar-right">
-                  {% if user.is_authenticated %}
+                  {% if request.user.is_authenticated %}
                       <li><a href="{% url 'post_picture' %}">Post</a></li>
                       <li><a href="{% url 'profile' user.username %}">Profile</a></li>
                       <li><a href="{% url 'signout' %}">Signout</a></li>
