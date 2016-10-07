@@ -39,7 +39,7 @@ class UserProfile(models.Model):
         return self.user.username
 
 class IGPost(models.Model):
-    user = models.ForeignKey(User, null=True, blank=True)
+    user_profile = models.ForeignKey(UserProfile, null=True, blank=True)
     title = models.CharField(max_length=100)
     image = ProcessedImageField(upload_to='posts',
                                 #processors=[ResizeToFill(200,200)],

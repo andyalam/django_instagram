@@ -104,7 +104,7 @@ def post_picture(request):
     if request.method == 'POST':
         form = PostPictureForm(data=request.POST, files=request.FILES)
         if form.is_valid():
-            post = IGPost(user=request.user,
+            post = IGPost(user_profile=request.user.userprofile,
                           title=request.POST['title'],
                           image=request.FILES['image'],
                           posted_on=datetime.datetime.now())

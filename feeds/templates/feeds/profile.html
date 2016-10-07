@@ -45,7 +45,7 @@
         {% endif %}
         <div class="desktop-block">
           <ul class="stats">
-              <li class="stats__count"><span>{{ user.igpost_set.count }}</span> Posts</li>
+              <li class="stats__count"><span>{{ profile.igpost_set.count }}</span> Posts</li>
               <a><li class="stats__count"><span>{{ profile.get_number_of_followers }}</span> Followers</li></a>
               <a><li class="stats__count"><span>{{ profile.get_number_of_following }}</span> Following</li></a>
           </ul>
@@ -59,7 +59,7 @@
           <p>{% if profile.description %}{{ profile.description }}{% endif %}</p>
         </div>
         <ul class="stats">
-            <div class="col-xs-4"><li class="stats__count"><span>{{ user.igpost_set.count }}</span><br> posts</li></div>
+            <div class="col-xs-4"><li class="stats__count"><span>{{ profile.igpost_set.count }}</span><br> posts</li></div>
             <div class="col-xs-4"><a><li class="stats__count"><span>{{ profile.get_number_of_followers }}</span><br> followers</li></a></div>
             <div class="col-xs-4"><a><li class="stats__count"><span>{{ profile.get_number_of_following }}</span><br> following</li></a></div>
         </ul>
@@ -69,7 +69,7 @@
 
   <div class="profile__body">
     <div class="row">
-      {% for post in user.igpost_set.all reversed %}
+      {% for post in profile.igpost_set.all reversed %}
         <div class="col-xs-4">
           <div class="picture-square" style="background-image: url({{ post.image.url }})">
             <a href="{% url 'post' post.pk %}">

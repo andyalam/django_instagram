@@ -9,13 +9,13 @@
                 <div class="card">
                     <div class="card__panel-head">
                         <div class="poster__info">
-                            <a href="{% url 'profile' post.user.username %}" class="poster__name">
-                              {% if post.user.userprofile.profile_pic %}
-                                <img class="poster__profilepic" src="{{ post.user.userprofile.profile_pic.url }}">
+                            <a href="{% url 'profile' post.user_profile.user.username %}" class="poster__name">
+                              {% if post.user_profile.profile_pic %}
+                                <img class="poster__profilepic" src="{{ post.user_profile.profile_pic.url }}">
                               {% else %}
                                 <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
                               {% endif %}
-                              {{ post.user.username }}
+                              {{ post.user_profile.user.username }}
                             </a>
                             <span class="poster__timestamp">
                                 {{ post.posted_on|timesince }}
@@ -31,7 +31,7 @@
                         </div>
                         <ul class="comment-list">
                           <li class="comment-list__comment">
-                            <a class="user" href="{% url 'profile' post.user.username %}">
+                            <a class="user" href="{% url 'profile' post.user_profile.user.username %}">
                               {{ post.profile.user.username }}
                             </a>
                             <span class="comment">{{ post.title }}</span>

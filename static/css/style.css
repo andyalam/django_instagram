@@ -160,6 +160,13 @@ a:hover {
   #logoutModal.fade.in {
     align-items: flex-end; } }
 
+.single-post {
+  display: flex;
+  align-items: stretch; }
+
+.single-post-card {
+  margin-top: 20px; }
+
 .profile {
   max-width: 975px;
   padding: 60px 20px 0;

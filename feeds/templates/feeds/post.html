@@ -3,51 +3,14 @@
 {% load static %}
 
 {% block content %}
-<div class="row">
-  <div class="card">
-      <div class="card__panel-head">
-          <div class="poster__info">
-              <a href="{% url 'profile' post.user.username %}" class="poster__name">
-                {% if post.user.userprofile.profile_pic %}
-                  <img class="poster__profilepic" src="{{ post.user.userprofile.profile_pic.url }}">
-                {% else %}
-                  <img class="poster__profilepic" src="{% static 'images/profile_placeholder.jpg' %}">
-                {% endif %}
-                {{ post.user.username }}
-              </a>
-              <span class="poster__timestamp">
-                  {{ post.posted_on|timesince }}
-              </span>
-          </div>
-      </div>
+<div class="row single-post">
+  <div class="single-post-card">
+    <div class="col-md-8">
       <img class="card__main-image" src="{{ post.image.url }}">
-      <div class="card__panel-body">
-          <div class="likes">
-            {% if post.get_number_of_likes %}
-              {{ post.get_number_of_likes }} like{% if post.get_number_of_likes > 1 %}s{% endif %}
-            {% endif %}
-          </div>
-          <ul class="comment-list">
-            <li class="comment-list__comment">
-              <a class="user" href="{% url 'profile' post.user.username %}">
-                {{ post.profile.user.username }}
-              </a>
-              <span class="comment">{{ post.title }}</span>
-            </li>
-            <a class="view-more">view all 5 comments</a>
-            {% for comment in post.comment_set.all %}
-              <li class="comment-list__comment">
-                <a href="{% url 'profile' comment.user.username %}" class="user">
-                  {{ comment.user.username }}
-                </a>
-                <span class="comment">{{ comment.comment }}</span>
-              </li>
-            {% endfor %}
-          </ul>
-          <div class="comment-input">
-
-          </div>
-      </div>
+    </div>
+    <div class="col-md-4">
+      
+    </div>
   </div>
 </div>
 {% endblock %}
