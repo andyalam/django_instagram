@@ -9,7 +9,20 @@
       <img class="card__main-image" src="{{ post.image.url }}">
     </div>
     <div class="col-md-4">
-      
+      <div class="header">
+        {% if post.user_profile.profile_pic %}
+          <img class="picture-circle--medium" src="{{ post.user_profile.profile_pic.url }}">
+        {% else %}
+          <img class="picture-circle--medium" src="{% static 'images/profile_placeholder.jpg' %}">
+        {% endif %}
+        <a href="{% url 'profile' post.user_profile.user.username %}">{{ post.user_profile.user.username }}</a>
+      </div>
+      <div class="comments">
+
+      </div>
+      <div class="comment-input">
+
+      </div>
     </div>
   </div>
 </div>
