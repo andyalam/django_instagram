@@ -160,9 +160,50 @@ a:hover {
   #logoutModal.fade.in {
     align-items: flex-end; } }
 
-.single-post {
+.single-post-card {
   display: flex;
-  align-items: stretch; }
+  align-items: stretch;
+  box-sizing: border-box;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding-right: 335px;
+  width: 100%;
+  position: relative;
+  background-color: #fff; }
+  .single-post-card .header, .single-post-card .comments-portion {
+    display: flex;
+    flex-shrink: 0; }
+  .single-post-card .header {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    right: 24px;
+    width: 287px;
+    display: flex;
+    align-items: center; }
+    .single-post-card .header img {
+      margin-right: 10px; }
+    .single-post-card .header a {
+      color: #262626; }
+  .single-post-card .comments-portion {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 335px;
+    padding: 0 24px;
+    flex-direction: column; }
+  @media screen and (max-width: 875px) {
+    .single-post-card {
+      padding-right: 0; }
+      .single-post-card .header, .single-post-card .comments-portion {
+        position: relative; }
+      .single-post-card .header {
+        top: 0;
+        right: 0;
+        padding: 18px 20px;
+        border: none; } }
 
 .single-post-card {
   margin-top: 20px; }

@@ -59,7 +59,7 @@ class IGPost(models.Model):
 
 class Comment(models.Model):
     post = models.ForeignKey('IGPost')
-    user = models.OneToOneField(User)
+    user = models.ForeignKey(User)
     comment = models.CharField(max_length=100)
     posted_on = models.DateTimeField()
 

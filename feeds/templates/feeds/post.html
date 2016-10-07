@@ -5,24 +5,28 @@
 {% block content %}
 <div class="row single-post">
   <div class="single-post-card">
-    <div class="col-md-8">
+    <div class="header">
+      {% if post.user_profile.profile_pic %}
+        <img class="picture-circle--medium" src="{{ post.user_profile.profile_pic.url }}">
+      {% else %}
+        <img class="picture-circle--medium" src="{% static 'images/profile_placeholder.jpg' %}">
+      {% endif %}
+      <a href="{% url 'profile' post.user_profile.user.username %}">{{ post.user_profile.user.username }}</a>
+    </div>
+    <div class="image__wrapper">
       <img class="card__main-image" src="{{ post.image.url }}">
     </div>
-    <div class="col-md-4">
-      <div class="header">
-        {% if post.user_profile.profile_pic %}
-          <img class="picture-circle--medium" src="{{ post.user_profile.profile_pic.url }}">
-        {% else %}
-          <img class="picture-circle--medium" src="{% static 'images/profile_placeholder.jpg' %}">
-        {% endif %}
-        <a href="{% url 'profile' post.user_profile.user.username %}">{{ post.user_profile.user.username }}</a>
-      </div>
-      <div class="comments">
-
-      </div>
-      <div class="comment-input">
-
-      </div>
+    <div class="comments-portion">
+      <ul class="comment-list">
+      {% for comment in post.comment_set.all %}
+        <li class="comment-list__comment">
+          <a href="{% url 'profile' comment.user.username %}" class="user">
+            {{ comment.user.username }}
+          </a>
+          <span class="comment">{{ comment.comment }}</span>
+        </li>
+      {% endfor %}
+      </ul>
     </div>
   </div>
 </div>

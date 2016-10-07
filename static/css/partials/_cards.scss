@@ -106,9 +106,60 @@
   }
 }
 
-.single-post {
+.single-post-card {
   display: flex;
   align-items: stretch;
+  box-sizing: border-box;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding-right: 335px;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  .header, .comments-portion {
+    display: flex;
+    flex-shrink: 0;
+  }
+  .header {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    right: 24px;
+    width: 287px;
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 10px;
+    }
+    a {
+      color: #262626;
+    }
+  }
+  .comments-portion {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 335px;
+    padding: 0 24px;
+    flex-direction: column;
+  }
+  @media screen and (max-width: 875px) {
+    padding-right: 0;
+    .header, .comments-portion {
+      position: relative;
+    }
+    .header {
+      top: 0;
+      right: 0;
+      padding: 18px 20px;
+      border: none;
+    }
+    .comments-portion {
+
+    }
+  }
 }
 .single-post-card {
   margin-top: 20px;
