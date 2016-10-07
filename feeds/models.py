@@ -69,7 +69,7 @@ class Comment(models.Model):
 
 class Like(models.Model):
     post = models.ForeignKey('IGPost')
-    user = models.OneToOneField(User)
+    user = models.ForeignKey(User)
 
     def __str__(self):
         return 'Like: ' + self.user.username + ' ' + self.post.title

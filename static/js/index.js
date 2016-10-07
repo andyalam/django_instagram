@@ -1,5 +1,8 @@
-function create_comment() {
+
+
+function create_comment(success_cb, error_cb) {
   var post_pk = $(this).siblings('.hidden-data').find('.post-pk').text();
+  console.log(post_pk);
 
   $.ajax({
     type: "POST",
@@ -7,13 +10,21 @@ function create_comment() {
     data: {
       post_pk: post_pk
     },
-    success: function(data) {
-      console.log(data);
-    },
-    error: function(error) {
-      console.log(error);
-    }
+    success: function(data) { success_cb(data); },
+    error: function(error) { error_cb(error); }
   });
 }
 
-$('.submit-like').on('click', create_comment);
+function error_cb(error) {
+  console.log(error);
+}
+
+function update_post_view(data) {
+  console.log(data);
+}
+
+
+
+$('.submit-like').on('click', function() {
+  create_comment.call(this, update_post_view, error_cb);
+});

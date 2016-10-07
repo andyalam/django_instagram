@@ -139,8 +139,8 @@ def add_like(request):
         like = Like(post=post, user=request.user)
         like.save()
         result = 1
-    except:
-        result = 0
+    except Exception as e:
+        result = e
 
     return {
         'like': result
