@@ -17,7 +17,7 @@ class TransferData:
 '''
 USAGE
 
-It works with all of image types. I do not test it with videos.
+It works with all of image types. I do not tested it with videos.
 Sorry my bad english.
 
 In your views.py or other file:
