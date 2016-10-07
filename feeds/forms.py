@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 from imagekit.forms import ProcessedImageField
 
-from . models import IGPost, UserProfile
+from . models import IGPost, UserProfile, Comment, Like
 
 
 class UserCreateForm(UserCreationForm):

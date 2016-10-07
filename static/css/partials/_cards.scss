@@ -169,12 +169,15 @@
   align-items: center;
   height: 68px;
   padding-left: 40px;
-  .like {
+  .submit-like {
     position: absolute;
     top: 32%;
     left: 0;
     color: #C2C2C2;
     font-size: 24px;
+    &:hover {
+      cursor: pointer;
+    }
   }
   .comment-input-wrapper {
     display: inline-block;
