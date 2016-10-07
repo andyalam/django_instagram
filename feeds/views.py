@@ -124,9 +124,16 @@ def post_picture(request):
 
 def post(request, pk):
     post = IGPost.objects.get(pk=pk)
-    print(post)
+    try:
+        like = Like.objects.get(post=post, user=request.user)
+        liked = 1
+    except:
+        like = None
+        liked = 0
+
     context = {
-        'post': post
+        'post': post,
+        'liked': liked
     }
     return render(request, 'feeds/post.html', context)
 
@@ -140,8 +147,10 @@ def add_like(request):
         like.save()
         result = 1
     except Exception as e:
-        result = e
+        like = Like.objects.get(post=post, user=request.user)
+        like.delete()
+        result = 0
 
     return {
-        'like': result
+        'result': result
     }
