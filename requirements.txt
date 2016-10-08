@@ -1,3 +1,14 @@
+adium-theme-ubuntu==0.3.4
 Django==1.9.6
-django-annoying==0.8.1
-django-imagekit==3.2.7
+docopt==0.6.2
+pbr==1.10.0
+pipreqs==0.4.2
+psycopg2==2.6.1
+requests==2.10.0
+six==1.10.0
+stevedore==1.14.0
+unity-lens-photos==1.0
+virtualenv==15.0.1
+virtualenv-clone==0.2.6
+virtualenvwrapper==4.7.1
+yarg==0.1.9
