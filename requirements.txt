@@ -1,5 +1,6 @@
 adium-theme-ubuntu==0.3.4
 Django==1.9.6
+django-annoying==0.8.1
 docopt==0.6.2
 pbr==1.10.0
 pipreqs==0.4.2
