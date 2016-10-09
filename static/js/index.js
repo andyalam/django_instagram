@@ -4,7 +4,7 @@
  *
  */
 
-function create_comment(success_cb, error_cb) {
+function create_like(success_cb, error_cb) {
   var post_pk = $(this).siblings('.hidden-data').find('.post-pk').text();
   console.log(post_pk);
 
@@ -39,7 +39,7 @@ function like_update_view(data) {
 
 
 $('.submit-like').on('click', function() {
-  create_comment.call(this, like_update_view, error_cb);
+  create_like.call(this, like_update_view, error_cb);
 });
 
 
@@ -62,13 +62,18 @@ function enterPressed(e) {
 }
 
 
-function addComment(input, success_cb, error_cb) {
-  comment = $(this).val();
+function create_comment(success_cb, error_cb) {
+  var comment_text = $(this).val();
+  var post_pk = $(this).parent().siblings('.hidden-data').find('.post-pk').text();
+
+  console.log(comment_text, post_pk);
+
   $.ajax({
     type: "POST",
     url: '/comment/',
     data: {
-      comment: comment
+      comment_text: comment_text,
+      post_pk: post_pk
     },
     success: function(data) { success_cb(data); },
     error: function(error) { error_cb(error); }
@@ -76,8 +81,13 @@ function addComment(input, success_cb, error_cb) {
 }
 
 
+function comment_update_view(data) {
+  console.log(data);
+}
+
+
 $('.add-comment').on('keyup', function(e) {
   if (enterPressed(e)) {
-    addComment.call(this, comment_update_view, error_cb);
+    create_comment.call(this, comment_update_view, error_cb);
   }
 });

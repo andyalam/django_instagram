@@ -161,6 +161,17 @@ def add_like(request):
 @ajax_request
 @login_required
 def add_comment(request):
+    comment_text = request.POST.get('comment_text')
+    post_pk = request.POST.get('post_pk')
+    post = IGPost.objects.get(pk=post_pk)
+
+    try:
+        comment = Comment(comment=comment_text, user=request.user, post=post)
+        comment.save()
+        result = 1
+    except:
+        result = 0
+
     return {
-        'result': '1'
+        'result': result,
     }
