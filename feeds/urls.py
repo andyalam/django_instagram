@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^profile/(?P<username>[-_\w.]+)/edit/$', views.profile_settings, name='profile_settings'),
     url(r'^post/(?P<pk>\d+)/$', views.post, name='post'),
     url(r'^post/$', views.post_picture, name='post_picture'),
-    url(r'^like/$', views.add_like, name='like')
+    url(r'^like/$', views.add_like, name='like'),
+    url(r'^comment/$', views.add_comment, name='comment'),
 ]

@@ -12,7 +12,7 @@ from django.views.generic.edit import CreateView
 from imagekit.models import ProcessedImageField
 from annoying.decorators import ajax_request
 
-from . forms import UserCreateForm, PostPictureForm, ProfileEditForm
+from . forms import UserCreateForm, PostPictureForm, ProfileEditForm, CommentForm
 from . models import UserProfile, IGPost, Comment, Like
 
 
@@ -155,4 +155,12 @@ def add_like(request):
     return {
         'result': result,
         'post_pk': post_pk
+    }
+
+
+@ajax_request
+@login_required
+def add_comment(request):
+    return {
+        'result': '1'
     }
