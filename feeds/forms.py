@@ -33,3 +33,9 @@ class ProfileEditForm(ModelForm):
     class Meta:
         model = UserProfile
         fields = ['profile_pic', 'description']
+
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['comment']

@@ -141,7 +141,8 @@ def post(request, pk):
 @ajax_request
 @login_required
 def add_like(request):
-    post = IGPost.objects.get(pk=request.POST.get('post_pk'))
+    post_pk = request.POST.get('post_pk')
+    post = IGPost.objects.get(pk=post_pk)
     try:
         like = Like(post=post, user=request.user)
         like.save()
@@ -152,5 +153,6 @@ def add_like(request):
         result = 0
 
     return {
-        'result': result
+        'result': result,
+        'post_pk': post_pk
     }

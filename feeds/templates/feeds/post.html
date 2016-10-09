@@ -17,6 +17,16 @@
       <img class="card__main-image" src="{{ post.image.url }}">
     </div>
     <div class="comments-portion">
+      <div>
+        <div class="likes">
+          {% if post.get_number_of_likes %}
+            {{ post.get_number_of_likes }} like{% if post.get_number_of_likes > 1 %}s{% endif %}
+          {% endif %}
+        </div>
+        <div class="timestamp">
+            {{ post.posted_on|timesince }}
+        </div>
+      </div>
       <ul class="comment-list">
       {% for comment in post.comment_set.all %}
         <li class="comment-list__comment">
@@ -32,7 +42,7 @@
         <div class="comment-input-wrapper">
           <input type="text" placeholder="Add a comment...">
         </div>
-        <div class="hidden-data" style="display: none;">
+        <div class="hidden-data {{ post.pk }}" style="display: none;">
           <span class="post-pk">{{ post.pk }}</span>
         </div>
       </section>

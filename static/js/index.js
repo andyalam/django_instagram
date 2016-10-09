@@ -21,10 +21,12 @@ function error_cb(error) {
 
 function update_post_view(data) {
   console.log(data);
+  var $hiddenData = $('.hidden-data.' + data.post_pk);
+
   if (data.result) {
-    $('.submit-like').removeClass('fa-heart-o').addClass('fa-heart');
+    $hiddenData.siblings('.submit-like').removeClass('fa-heart-o').addClass('fa-heart');
   } else {
-    $('.submit-like').removeClass('fa-heart').addClass('fa-heart-o');
+    $hiddenData.siblings('.submit-like').removeClass('fa-heart').addClass('fa-heart-o');
   }
 }
 
