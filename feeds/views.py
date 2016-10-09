@@ -164,14 +164,29 @@ def add_comment(request):
     comment_text = request.POST.get('comment_text')
     post_pk = request.POST.get('post_pk')
     post = IGPost.objects.get(pk=post_pk)
+    commenter_info = {}
 
     try:
         comment = Comment(comment=comment_text, user=request.user, post=post)
         comment.save()
+
+        username = request.user.username
+        profile_url = reverse('profile', kwargs={'username': request.user})
+
+        commenter_info = {
+            'username': username,
+            'profile_url': profile_url,
+            'comment_text': comment_text
+        }
+
+
         result = 1
-    except:
+    except Exception as e:
+        print(e)
         result = 0
 
     return {
         'result': result,
+        'post_pk': post_pk,
+        'commenter_info': commenter_info
     }
