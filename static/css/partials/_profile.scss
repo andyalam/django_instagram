@@ -145,3 +145,26 @@
     cursor: pointer;
   }
 }
+
+
+.follow {
+  &__wrapper {
+    background-color: #fff;
+  }
+  &__heading {
+    font-weight: 600;
+    font-size: 16px;
+    padding: 16px;
+    border-bottom: 1px solid #dbdbdb;
+  }
+  &__card {
+    padding: 16px 20px;
+    .picture-circle--small {
+      margin-right: 13px;
+    }
+    a {
+      color: #363636;
+      font-weight: 600;
+    }
+  }
+}

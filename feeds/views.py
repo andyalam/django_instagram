@@ -102,6 +102,30 @@ def profile_settings(request, username):
     return render(request, 'feeds/profile_settings.html', context)
 
 
+def followers(request, username):
+    user = User.objects.get(username=username)
+    user_profile = UserProfile.objects.get(user=user)
+    profiles = user_profile.followers.all
+
+    context = {
+        'profiles': profiles
+    }
+
+    return render(request, 'feeds/follow_list.html', context)
+
+
+def following(request, username):
+    user = User.objects.get(username=username)
+    user_profile = UserProfile.objects.get(user=user)
+    profiles = user_profile.following.all
+
+    context = {
+        'profiles': profiles
+    }
+    return render(request, 'feeds/follow_list.html', context)
+
+
+
 @login_required
 def post_picture(request):
     if request.method == 'POST':

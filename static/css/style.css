@@ -9,13 +9,16 @@ a:hover {
   margin-bottom: 60px;
   background-color: #fafafa; }
 
-.picture-circle, .picture-circle--medium {
+.picture-circle, .picture-circle--medium, .picture-circle--small {
   border-radius: 100%;
   width: 150px;
   height: 150px; }
   .picture-circle--medium {
     width: 36px;
     height: 36px; }
+  .picture-circle--small {
+    width: 30px;
+    height: 30px; }
 
 .picture-square {
   position: relative;
@@ -72,7 +75,8 @@ a:hover {
       display: block; } }
 
 .navbar {
-  background-color: #fff; }
+  background-color: #fff;
+  border-bottom-color: #dbdbdb; }
 
 .cards-listing {
   max-width: 600px;
@@ -314,7 +318,7 @@ a:hover {
       padding-top: 15px; }
       .profile__head {
         margin-bottom: 10px; }
-        .profile__head .picture-circle, .profile__head .picture-circle--medium {
+        .profile__head .picture-circle, .profile__head .picture-circle--medium, .profile__head .picture-circle--small {
           width: 75px;
           height: 75px;
           margin-top: 5px; }
@@ -353,5 +357,20 @@ a:hover {
   .stats a:hover {
     color: #262626;
     cursor: pointer; }
+
+.follow__wrapper {
+  background-color: #fff; }
+.follow__heading {
+  font-weight: 600;
+  font-size: 16px;
+  padding: 16px;
+  border-bottom: 1px solid #dbdbdb; }
+.follow__card {
+  padding: 16px 20px; }
+  .follow__card .picture-circle--small {
+    margin-right: 13px; }
+  .follow__card a {
+    color: #363636;
+    font-weight: 600; }
 
 /*# sourceMappingURL=style.css.map */

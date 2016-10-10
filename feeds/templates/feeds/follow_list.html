@@ -1,0 +1,21 @@
+{% extends 'feeds/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="follow__wrapper row">
+  <div class="follow__heading">
+    Followers
+  </div>
+  {% for profile in profiles %}
+    <div class="follow__card">
+      {% if profile.profile_pic %}
+        <img class="picture-circle--small" src="{{ profile.profile_pic.url }}">
+      {% else %}
+        <img class="picture-circle--small" src="{% static 'images/profile_placeholder.jpg' %}">
+      {% endif %}
+      <a href="{% url 'profile' profile.user.username %}">{{ profile.user.username }}</a>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
