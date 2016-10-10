@@ -25,6 +25,20 @@ def index(request):
     })
 
 
+def explore(request):
+    random_posts = IGPost.objects.all().order_by('?')[:40]
+
+    context = {
+        'posts': random_posts
+    }
+    return render(request, 'feeds/explore.html', context)
+
+
+def notifications(request):
+    context = {}
+    return render(request, 'feeds/notifications.html', context)
+
+
 def signup(request):
     form = UserCreateForm()
 

@@ -12,6 +12,8 @@
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
                     <li><a href="{% url 'post_picture' %}">Post</a></li>
+                    <li><a href="{% url 'explore' %}">Explore</a></li>
+                    <li><a href="{% url 'notifications' %}">Notifications</a></li>
                     <li><a href="{% url 'profile' user.username %}">Profile</a></li>
                     <li><a href="{% url 'signout' %}">Signout</a></li>
                 {% else %}
@@ -28,12 +30,12 @@
               <i class="fa fa-home" aria-hidden="true"></i>
             </div>
           </a>
-          <a>
+          <a href="{% url 'explore' %}">
             <div class="col-xs-3">
               <i class="fa fa-search" aria-hidden="true"></i>
             </div>
           </a>
-          <a>
+          <a href="{% url 'notifications' %}">
             <div class="col-xs-3">
               <i class="fa fa-heart-o" aria-hidden="true"></i>
             </div>

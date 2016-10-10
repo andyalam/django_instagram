@@ -113,7 +113,7 @@ a:hover {
     margin-bottom: 15px;
     height: 55px;
     width: 55px;
-    background-color: gray;
+    background-color: #333;
     border-radius: 100%;
     padding-top: 13px; }
   @media screen and (max-width: 768px) {
@@ -311,9 +311,6 @@ a:hover {
       border: none;
       outline: none; }
 
-.single-post-card {
-  margin-top: 20px; }
-
 .profile {
   max-width: 975px;
   padding: 60px 20px 0;
@@ -443,5 +440,8 @@ a:hover {
     right: 20px;
     z-index: 1;
     background: #fff; }
+
+#explore > .col-xs-4, #explore > .col-sm-3 {
+  padding: 0; }
 
 /*# sourceMappingURL=style.css.map */
