@@ -1,3 +1,29 @@
+.unfollow-user, .follow-user {
+  font-weight: bold;
+  font-size: 15px;
+  outline: none; }
+
+.unfollow-user {
+  background-color: #70c050;
+  border-color: #70c050;
+  padding: 4px 27px; }
+  .unfollow-user:hover {
+    background-color: #70c050;
+    border-color: #70c050; }
+  .unfollow-user:active, .unfollow-user:focus {
+    background-color: #5a9a40;
+    border-color: #5a9a40; }
+
+.follow-user {
+  background-color: #fff;
+  border-color: #3897f0;
+  color: #3897f0;
+  padding: 4px 38px; }
+  .follow-user:hover, .follow-user:active, .follow-user:focus {
+    background-color: #fff;
+    border-color: #3897f0;
+    color: #3897f0; }
+
 body {
   background-color: #fafafa; }
 

@@ -10,3 +10,8 @@ def has_user_liked_post(post, user):
         return "fa-heart"
     except:
         return "fa-heart-o"
+
+
+@register.simple_tag
+def is_following(users_profile, profile_to_check):
+    return users_profile.following.filter(user_id=profile_to_check.user_id).exists()

@@ -1,0 +1,31 @@
+.unfollow-user, .follow-user {
+  font-weight: bold;
+  font-size: 15px;
+  outline: none;
+}
+
+.unfollow-user {
+  background-color: #70c050;
+  border-color: #70c050;
+  padding: 4px 27px;
+  &:hover {
+    background-color: #70c050;
+    border-color: #70c050;
+  }
+  &:active, &:focus {
+    background-color: #70c050 * 0.8;
+    border-color: #70c050 * 0.8;
+  }
+}
+
+.follow-user {
+  background-color: #fff;
+  border-color: #3897f0;
+  color: #3897f0;
+  padding: 4px 38px;
+  &:hover, &:active, &:focus {
+    background-color: #fff;
+    border-color: #3897f0;
+    color: #3897f0;
+  }
+}

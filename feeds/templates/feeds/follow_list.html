@@ -1,6 +1,6 @@
 {% extends 'feeds/base.html' %}
 
-{% load static %}
+{% load static custom_tags %}
 
 {% block content %}
 <div class="follow__wrapper row">
@@ -17,7 +17,14 @@
       <a href="{% url 'profile' profile.user.username %}">{{ profile.user.username }}</a>
 
       <div class="follow-toggle__container">
-        <button class="btn btn-primary follow-user">Follow</button>
+        {% is_following request.user.userprofile profile as following %}
+        <button class="btn btn-primary {% if not following %}follow-user{% else %}unfollow-user{% endif %}">
+          {% if not following %}
+            Follow
+          {% else %}
+            Following
+          {% endif %}
+        </button>
       </div>
     </div>
   {% endfor %}

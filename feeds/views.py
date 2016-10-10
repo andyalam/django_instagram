@@ -220,12 +220,16 @@ def add_comment(request):
 
 @ajax_request
 @login_required
-def follow(request):
+def follow_toggle(request):
     user_profile = UserProfile.objects.get(user=request.user)
-    follow_profile = UserProfile.objects.get(pk=request.POST.get('follow_profile_pk'))
+    follow_profile_pk = request.POST.get('follow_profile_pk')
+    follow_profile = UserProfile.objects.get(pk=follow_profile_pk)
 
     try:
-        user_profile.following.add(follow_profile)
+        if request.POST.get('type') == 'follow':
+            user_profile.following.add(follow_profile)
+        elif request.POST.get('type') == 'unfollow':
+            user_profile.following.remove(follow_profile)
         user_profile.save()
         result = 1
     except Exception as e:
@@ -233,11 +237,7 @@ def follow(request):
         result = 0
 
     return {
-        'result': result
+        'result': result,
+        'type': request.POST.get('type'),
+        'follow_profile_pk': follow_profile_pk
     }
-
-
-@ajax_request
-@login_required
-def unfollow(request):
-    return {}
