@@ -25,7 +25,7 @@
               <p class="bubble"></p>
               <p class="bubble"></p>
             </div>
-          {% else %}
+          {% elif request.user.is_authenticated %}
           <div class="follow-toggle__container">
             {% is_following request.user.userprofile profile as following %}
             <button class="btn btn-primary {% if not following %}follow-user{% else %}unfollow-user{% endif %}" id="{{ profile.pk }}">
