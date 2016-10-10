@@ -10,8 +10,8 @@
     .col-xs-3 {
       text-align: center;
       .fa {
-        font-size: 30px;
-        margin-top: 10px;
+        font-size: 25px;
+        margin-top: 13px;
       }
     }
   }
@@ -20,7 +20,7 @@
     float: right;
   }
 
-  @media screen and (max-width: $mobile) {
+  @media screen and (max-width: 768px) {
     .desktop {
       display: none;
     }

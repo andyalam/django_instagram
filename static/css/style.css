@@ -100,6 +100,26 @@ a:hover {
     .mobile-block {
       display: block; } }
 
+.upload-mobile-link {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+  .upload-mobile-link .fa {
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 15px;
+    height: 55px;
+    width: 55px;
+    background-color: gray;
+    border-radius: 100%;
+    padding-top: 13px; }
+  @media screen and (max-width: 768px) {
+    .upload-mobile-link {
+      display: block; } }
+
 .navbar {
   background-color: #fff;
   border-bottom-color: #dbdbdb; }
@@ -110,11 +130,11 @@ a:hover {
     .navbar .mobile .col-xs-3 {
       text-align: center; }
       .navbar .mobile .col-xs-3 .fa {
-        font-size: 30px;
-        margin-top: 10px; }
+        font-size: 25px;
+        margin-top: 13px; }
   .navbar .navbar-brand:not(:first-of-type) {
     float: right; }
-  @media screen and (max-width: 724px) {
+  @media screen and (max-width: 768px) {
     .navbar .desktop {
       display: none; }
     .navbar .mobile {
@@ -242,7 +262,7 @@ a:hover {
     display: flex;
     align-items: center; }
     .single-post-card .header img {
-      margin-right: 10px; }
+      margin-right: 5px; }
     .single-post-card .header a {
       color: #262626;
       font-weight: bold; }

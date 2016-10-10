@@ -96,4 +96,11 @@
   </div>
 
 </div>
+
+{% if request.user.userprofile == profile %}
+  <div class="upload-mobile-link">
+    <a href="{% url 'post_picture' %}"><i class="fa fa-camera" aria-hidden="true"></i></a>
+  </div>
+{% endif %}
+
 {% endblock %}

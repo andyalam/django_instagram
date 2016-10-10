@@ -6,12 +6,14 @@
 <div class="row single-post">
   <div class="single-post-card view-update {{ post.pk }}">
     <div class="header">
-      {% if post.user_profile.profile_pic %}
-        <img class="picture-circle--medium" src="{{ post.user_profile.profile_pic.url }}">
-      {% else %}
-        <img class="picture-circle--medium" src="{% static 'images/profile_placeholder.jpg' %}">
-      {% endif %}
-      <a href="{% url 'profile' post.user_profile.user.username %}">{{ post.user_profile.user.username }}</a>
+      <a href="{% url 'profile' post.user_profile.user.username %}">
+        {% if post.user_profile.profile_pic %}
+          <img class="picture-circle--medium" src="{{ post.user_profile.profile_pic.url }}">
+        {% else %}
+          <img class="picture-circle--medium" src="{% static 'images/profile_placeholder.jpg' %}">
+        {% endif %}
+        {{ post.user_profile.user.username }}
+      </a>
     </div>
     <div class="image__wrapper">
       <img class="card__main-image" src="{{ post.image.url }}">
@@ -43,15 +45,17 @@
           </li>
         {% endfor %}
       </ul>
-      <section class="input-row">
-        <i class="fa {% if liked %}fa-heart{% else %}fa-heart-o{% endif %} submit-like" aria-hidden="true"></i>
-        <div class="comment-input-wrapper">
-          <input class="add-comment" type="text" placeholder="Add a comment...">
-        </div>
-        <div class="hidden-data {{ post.pk }}" style="display: none;">
-          <span class="post-pk">{{ post.pk }}</span>
-        </div>
-      </section>
+      {% if request.user.is_authenticated %}
+        <section class="input-row">
+          <i class="fa {% if liked %}fa-heart{% else %}fa-heart-o{% endif %} submit-like" aria-hidden="true"></i>
+          <div class="comment-input-wrapper">
+            <input class="add-comment" type="text" placeholder="Add a comment...">
+          </div>
+          <div class="hidden-data {{ post.pk }}" style="display: none;">
+            <span class="post-pk">{{ post.pk }}</span>
+          </div>
+        </section>
+      {% endif %}
     </div>
   </div>
 </div>
