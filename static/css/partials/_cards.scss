@@ -22,6 +22,7 @@
       }
       &__name {
         color: #262626;
+        font-weight: bold;
         &:hover {
           color: #262626 * 2;
           text-decoration: none;
@@ -68,6 +69,20 @@
       @include grey-anchor();
       font-weight: bold;
     }
+  }
+}
+
+.likes-timestamp-row {
+  margin-top: 15px;
+  > div {
+    display: inline-block;
+  }
+  .likes {
+    font-weight: bold;
+    color: #333;
+  }
+  .timestamp {
+    float: right;
   }
 }
 
@@ -136,6 +151,7 @@
     }
     a {
       color: #262626;
+      font-weight: bold;
     }
   }
   .comments-portion {
@@ -187,6 +203,7 @@
     display: inline-block;
     color: #262626;
     font-size: 15px;
+    width: 100%;
     input {
       width: 100%;
       border: none;

@@ -32,7 +32,7 @@
                         <ul class="comment-list">
                           <li class="comment-list__comment">
                             <a class="user" href="{% url 'profile' post.user_profile.user.username %}">
-                              {{ post.profile.user.username }}
+                              {{ post.user_profile.user.username }}
                             </a>
                             <span class="comment">{{ post.title }}</span>
                           </li>

@@ -94,7 +94,8 @@ a:hover {
       height: 30px;
       margin-right: 5px; }
     .card__panel-head .poster__name {
-      color: #262626; }
+      color: #262626;
+      font-weight: bold; }
       .card__panel-head .poster__name:hover {
         color: #4c4c4c;
         text-decoration: none; }
@@ -136,6 +137,16 @@ a:hover {
       .comment-list__comment .user:hover {
         color: #4d4d4d;
         text-decoration: none; }
+
+.likes-timestamp-row {
+  margin-top: 15px; }
+  .likes-timestamp-row > div {
+    display: inline-block; }
+  .likes-timestamp-row .likes {
+    font-weight: bold;
+    color: #333; }
+  .likes-timestamp-row .timestamp {
+    float: right; }
 
 #logoutModal.fade.in {
   display: flex !important;
@@ -187,7 +198,8 @@ a:hover {
     .single-post-card .header img {
       margin-right: 10px; }
     .single-post-card .header a {
-      color: #262626; }
+      color: #262626;
+      font-weight: bold; }
   .single-post-card .comments-portion {
     position: absolute;
     bottom: 0;
@@ -226,7 +238,8 @@ a:hover {
   .input-row .comment-input-wrapper {
     display: inline-block;
     color: #262626;
-    font-size: 15px; }
+    font-size: 15px;
+    width: 100%; }
     .input-row .comment-input-wrapper input {
       width: 100%;
       border: none;
@@ -322,7 +335,7 @@ a:hover {
         .profile__head .col-xs-4.left {
           width: auto; }
       .profile__body > .row > .col-xs-4 {
-        padding: 2px; } }
+        padding: 1px; } }
 
 .stats {
   list-style: none;

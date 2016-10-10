@@ -17,7 +17,7 @@
       <img class="card__main-image" src="{{ post.image.url }}">
     </div>
     <div class="comments-portion">
-      <div>
+      <div class="likes-timestamp-row">
         <div class="likes">
           {% if post.get_number_of_likes %}
             {{ post.get_number_of_likes }} like{% if post.get_number_of_likes > 1 %}s{% endif %}
@@ -28,14 +28,20 @@
         </div>
       </div>
       <ul class="comment-list">
-      {% for comment in post.comment_set.all %}
         <li class="comment-list__comment">
-          <a href="{% url 'profile' comment.user.username %}" class="user">
-            {{ comment.user.username }}
+          <a class="user" href="{% url 'profile' post.user_profile.user.username %}">
+            {{ post.user_profile.user.username }}
           </a>
-          <span class="comment">{{ comment.comment }}</span>
+          <span class="comment">{{ post.title }}</span>
         </li>
-      {% endfor %}
+        {% for comment in post.comment_set.all %}
+          <li class="comment-list__comment">
+            <a href="{% url 'profile' comment.user.username %}" class="user">
+              {{ comment.user.username }}
+            </a>
+            <span class="comment">{{ comment.comment }}</span>
+          </li>
+        {% endfor %}
       </ul>
       <section class="input-row">
         <i class="fa {% if liked %}fa-heart{% else %}fa-heart-o{% endif %} submit-like" aria-hidden="true"></i>
