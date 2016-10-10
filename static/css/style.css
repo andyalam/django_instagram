@@ -336,6 +336,8 @@ a:hover {
         color: #999; }
         .profile .mobile-block .stats__count span {
           color: #262626; }
+  .profile .follow-toggle__container {
+    margin-top: 12px; }
   @media screen and (max-width: 992px) {
     .profile {
       padding: 60px 0; } }

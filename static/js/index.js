@@ -135,7 +135,8 @@ $('.add-comment').on('keyup', function(e) {
  */
 
 function follow_user(success_cb, error_cb, type) {
-  var follow_profile_pk = $(this).closest('.follow__card').attr('id');
+  var follow_profile_pk = $(this).closest('.follow__card').attr('id')
+                        || $(this).attr('id');
   console.log(follow_profile_pk);
 
   $.ajax({
@@ -152,23 +153,25 @@ function follow_user(success_cb, error_cb, type) {
 
 function update_follow_view(data) {
   console.log('data',data);
-  var $button = $('.follow__card#' + data.follow_profile_pk +' .btn');
+  var $button = $('.follow__card#' + data.follow_profile_pk
+                + ' .btn, .profile .follow-toggle__container .btn');
   $button.addClass('unfollow-user').removeClass('follow-user');
   $button.text('Following');
 }
 
 function update_unfollow_view(data) {
   console.log('data',data);
-  var $button = $('.follow__card#' + data.follow_profile_pk +' .btn');
+  var $button = $('.follow__card#' + data.follow_profile_pk
+                + ' .btn, .profile .follow-toggle__container .btn');
   $button.addClass('follow-user').removeClass('unfollow-user');
   $button.text('Follow');
 }
 
 
-$('.follow__wrapper').on('click', '.follow-user', function() {
+$('.follow-toggle__container').on('click', '.follow-user', function() {
   follow_user.call(this, update_follow_view, error_cb, 'follow');
 });
 
-$('.follow__wrapper').on('click', '.unfollow-user', function() {
+$('.follow-toggle__container').on('click', '.unfollow-user', function() {
   follow_user.call(this, update_unfollow_view, error_cb, 'unfollow');
 });
