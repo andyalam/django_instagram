@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="row single-post">
-  <div class="single-post-card view-update">
+  <div class="single-post-card view-update {{ post.pk }}">
     <div class="header">
       {% if post.user_profile.profile_pic %}
         <img class="picture-circle--medium" src="{{ post.user_profile.profile_pic.url }}">

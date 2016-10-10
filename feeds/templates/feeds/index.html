@@ -6,7 +6,7 @@
     <div class="cards-listing">
         {% for post in posts %}
             <div class="row">
-                <div class="card view-update">
+                <div class="card view-update {{ post.pk }}">
                     <div class="card__panel-head">
                         <div class="poster__info">
                             <a href="{% url 'profile' post.user_profile.user.username %}" class="poster__name">
@@ -36,7 +36,7 @@
                             </a>
                             <span class="comment">{{ post.title }}</span>
                           </li>
-                          <a class="view-more">view all 5 comments</a>
+                          <a class="view-more"></a>
                           {% for comment in post.comment_set.all %}
                             <li class="comment-list__comment">
                               <a href="{% url 'profile' comment.user.username %}" class="user">
