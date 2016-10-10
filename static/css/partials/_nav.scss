@@ -15,7 +15,11 @@
       }
     }
   }
-  
+
+  .navbar-brand:not(:first-of-type) {
+    float: right;
+  }
+
   @media screen and (max-width: $mobile) {
     .desktop {
       display: none;

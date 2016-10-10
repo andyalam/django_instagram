@@ -17,6 +17,8 @@ from . models import UserProfile, IGPost, Comment, Like
 
 
 def index(request):
+    if not request.user.is_authenticated():
+        redirect('login')
     posts = IGPost.objects.order_by('-posted_on')
     return render(request, 'feeds/index.html', {
         'posts': posts

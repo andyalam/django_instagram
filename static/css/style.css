@@ -112,6 +112,8 @@ a:hover {
       .navbar .mobile .col-xs-3 .fa {
         font-size: 30px;
         margin-top: 10px; }
+  .navbar .navbar-brand:not(:first-of-type) {
+    float: right; }
   @media screen and (max-width: 724px) {
     .navbar .desktop {
       display: none; }
