@@ -118,3 +118,50 @@ $('.add-comment').on('keyup', function(e) {
     $(this).val('');
   }
 });
+
+
+
+
+
+
+
+
+
+
+/*
+ *
+ *    Follow/Unfollow
+ *
+ */
+
+function follow_user(success_cb, error_cb, action) {
+  var follow_profile_pk = $(this).closest('.follow__card').attr('id');
+  console.log(follow_profile_pk);
+
+  $.ajax({
+    type: "POST",
+    url: '/' + action + '/',
+    data: {
+      follow_profile_pk: follow_profile_pk
+    },
+    success: function(data) { success_cb(data); },
+    error: function(error) { error_cb(error); }
+  });
+}
+
+function update_follow_view(data) {
+  console.log('data',data);
+}
+
+function update_unfollow_view(data) {
+  console.log('data',data);
+}
+
+
+$('.follow-user').on('click', function() {
+  follow_user.call(this, update_follow_view, error_cb, 'follow');
+});
+
+$('.unfollow-user').on('click', function() {
+  follow_user.call(this, update_unfollow_view, error_cb, 'unfollow');
+});

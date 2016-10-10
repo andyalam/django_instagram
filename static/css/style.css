@@ -366,11 +366,18 @@ a:hover {
   padding: 16px;
   border-bottom: 1px solid #dbdbdb; }
 .follow__card {
+  position: relative;
   padding: 16px 20px; }
   .follow__card .picture-circle--small {
     margin-right: 13px; }
   .follow__card a {
     color: #363636;
     font-weight: 600; }
+  .follow__card .follow-toggle__container {
+    position: absolute;
+    top: 21%;
+    right: 20px;
+    z-index: 1;
+    background: #fff; }
 
 /*# sourceMappingURL=style.css.map */

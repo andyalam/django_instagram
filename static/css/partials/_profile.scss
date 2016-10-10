@@ -158,6 +158,7 @@
     border-bottom: 1px solid #dbdbdb;
   }
   &__card {
+    position: relative;
     padding: 16px 20px;
     .picture-circle--small {
       margin-right: 13px;
@@ -165,6 +166,13 @@
     a {
       color: #363636;
       font-weight: 600;
+    }
+    .follow-toggle__container {
+      position: absolute;
+      top: 21%;
+      right: 20px;
+      z-index: 1;
+      background: #fff;
     }
   }
 }

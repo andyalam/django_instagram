@@ -16,4 +16,6 @@ urlpatterns = [
     url(r'^post/$', views.post_picture, name='post_picture'),
     url(r'^like/$', views.add_like, name='like'),
     url(r'^comment/$', views.add_comment, name='comment'),
+    url(r'^follow/$', views.follow, name='follow'),
+    url(r'^unfollow/$', views.unfollow, name='unfollow'),
 ]

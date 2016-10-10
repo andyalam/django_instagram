@@ -108,7 +108,8 @@ def followers(request, username):
     profiles = user_profile.followers.all
 
     context = {
-        'profiles': profiles
+        'header': 'Followers',
+        'profiles': profiles,
     }
 
     return render(request, 'feeds/follow_list.html', context)
@@ -120,6 +121,7 @@ def following(request, username):
     profiles = user_profile.following.all
 
     context = {
+        'header': 'Following',
         'profiles': profiles
     }
     return render(request, 'feeds/follow_list.html', context)
@@ -214,3 +216,15 @@ def add_comment(request):
         'post_pk': post_pk,
         'commenter_info': commenter_info
     }
+
+
+@ajax_request
+@login_required
+def follow(request):
+    return {}
+
+
+@ajax_request
+@login_required
+def unfollow(request):
+    return {}
