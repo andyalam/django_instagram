@@ -221,7 +221,20 @@ def add_comment(request):
 @ajax_request
 @login_required
 def follow(request):
-    return {}
+    user_profile = UserProfile.objects.get(user=request.user)
+    follow_profile = UserProfile.objects.get(pk=request.POST.get('follow_profile_pk'))
+
+    try:
+        user_profile.following.add(follow_profile)
+        user_profile.save()
+        result = 1
+    except Exception as e:
+        print(e)
+        result = 0
+
+    return {
+        'result': result
+    }
 
 
 @ajax_request
