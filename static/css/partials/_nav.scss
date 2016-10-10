@@ -1,4 +1,27 @@
 .navbar {
   background-color: #fff;
   border-bottom-color: #dbdbdb;
+
+  .mobile {
+    display: none;
+    a, a:hover, a:focus {
+      color: #333;
+    }
+    .col-xs-3 {
+      text-align: center;
+      .fa {
+        font-size: 30px;
+        margin-top: 10px;
+      }
+    }
+  }
+  
+  @media screen and (max-width: $mobile) {
+    .desktop {
+      display: none;
+    }
+    .mobile {
+      display: block;
+    }
+  }
 }

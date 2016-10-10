@@ -1,5 +1,5 @@
 <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
+      <div class="container desktop">
           <div class="navbar-header">
               <a href="/" class="navbar-brand">Django IG</a>
               <button type="button" data-toggle="collapse" data-target="#navbar-main" class="navbar-toggle">
@@ -21,4 +21,32 @@
               </ul>
           </div>
       </div>
+      <div class="mobile">
+        <a href="{% url 'index' %}">
+          <div class="col-xs-3">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </div>
+        </a>
+        <a>
+          <div class="col-xs-3">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </div>
+        </a>
+        <a>
+          <div class="col-xs-3">
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
+          </div>
+        </a>
+        <a href="{% url 'profile' request.user.username %}">
+          <div class="col-xs-3">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </div>
+        </a>
+      </div>
 </div>
+{% comment %}
+<i class="fa fa-home" aria-hidden="true"></i> /f015
+<i class="fa fa-search" aria-hidden="true"></i> /f002
+<i class="fa fa-heart-o" aria-hidden="true"></i> /f08a
+<i class="fa fa-user" aria-hidden="true"></i> /f007
+{% endcomment %}

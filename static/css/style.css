@@ -103,6 +103,20 @@ a:hover {
 .navbar {
   background-color: #fff;
   border-bottom-color: #dbdbdb; }
+  .navbar .mobile {
+    display: none; }
+    .navbar .mobile a, .navbar .mobile a:hover, .navbar .mobile a:focus {
+      color: #333; }
+    .navbar .mobile .col-xs-3 {
+      text-align: center; }
+      .navbar .mobile .col-xs-3 .fa {
+        font-size: 30px;
+        margin-top: 10px; }
+  @media screen and (max-width: 724px) {
+    .navbar .desktop {
+      display: none; }
+    .navbar .mobile {
+      display: block; } }
 
 .cards-listing {
   max-width: 600px;

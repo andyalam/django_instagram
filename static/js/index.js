@@ -62,6 +62,10 @@ $('.submit-like').on('click', function() {
   create_like.call(this, like_update_view, error_cb);
 });
 
+$('.card__main-image').on('dblclick', function() {
+  console.log('dblclick');
+})
+
 
 
 
