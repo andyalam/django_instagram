@@ -181,11 +181,11 @@ a:hover {
   .card__panel-body {
     padding: 20px;
     padding-bottom: 0; }
+    .card__panel-body a {
+      color: #333; }
     .card__panel-body .likes {
       font-weight: bold;
       margin-bottom: 5px; }
-      .card__panel-body .likes a {
-        color: #333; }
     .card__panel-body .view-more {
       color: #333; }
       .card__panel-body .view-more:hover {

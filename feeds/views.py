@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.core.urlresolvers import reverse
@@ -181,8 +182,11 @@ def post(request, pk):
 
 
 def likes(request, pk):
-    likes = IGPost.objects.get(pk=pk).like_set.all()
-    profiles = [like.user.userprofile for like in likes]
+    #likes = IGPost.objects.get(pk=pk).like_set.all()
+    #profiles = [like.user.userprofile for like in likes]
+
+    post = IGPost.objects.get(pk=pk)
+    profiles = Like.objects.filter(post=post)
 
     context = {
         'header': 'Likes',

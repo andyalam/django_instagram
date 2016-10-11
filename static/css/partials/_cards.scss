@@ -44,12 +44,12 @@
   &__panel-body {
     padding: 20px;
     padding-bottom: 0;
+    a {
+      color: #333;
+    }
     .likes {
       font-weight: bold;
       margin-bottom: 5px;
-      a {
-        color: #333;
-      }
     }
     .view-more {
       @include grey-anchor();
