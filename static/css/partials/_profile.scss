@@ -36,6 +36,7 @@
     }
     .edit-profile, .options-bubbles {
       margin-top: 5px;
+      cursor: pointer;
     }
     .edit-mobile {
       display: none;
@@ -75,6 +76,9 @@
         span {
           color: #262626;
         }
+      }
+      > a {
+        cursor: pointer;
       }
     }
   }

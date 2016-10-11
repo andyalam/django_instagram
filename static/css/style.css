@@ -50,12 +50,16 @@ a:hover {
   position: relative;
   background-repeat: no-repeat;
   background-position: center center;
-  background-color: #fff; }
+  background-color: #fff;
+  cursor: pointer; }
+  .picture-square > a {
+    cursor: pointer; }
   .picture-square:after {
     content: "";
     display: block;
     padding-bottom: 100%; }
   .picture-square .content {
+    cursor: pointer;
     display: none;
     position: absolute;
     width: 100%;
@@ -292,6 +296,7 @@ a:hover {
   height: 68px;
   padding-left: 40px; }
   .input-row .submit-like {
+    cursor: pointer;
     position: absolute;
     top: 32%;
     left: 0;
@@ -341,7 +346,8 @@ a:hover {
     .profile__head .options-bubbles p {
       vertical-align: middle; }
     .profile__head .edit-profile, .profile__head .options-bubbles {
-      margin-top: 5px; }
+      margin-top: 5px;
+      cursor: pointer; }
     .profile__head .edit-mobile {
       display: none; }
     .profile__head .name-buttons {
@@ -369,6 +375,8 @@ a:hover {
         color: #999; }
         .profile .mobile-block .stats__count span {
           color: #262626; }
+      .profile .mobile-block .stats > a {
+        cursor: pointer; }
   .profile .follow-toggle__container {
     margin-top: 12px; }
   @media screen and (max-width: 992px) {

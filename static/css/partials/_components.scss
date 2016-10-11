@@ -33,12 +33,17 @@ a:hover {
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #fff;
+  cursor: pointer;
+  > a {
+    cursor: pointer;
+  }
   &:after {
     content: "";
     display: block;
     padding-bottom: 100%;
   }
   .content {
+    cursor: pointer;
     display: none;
     position: absolute;
     width: 100%;
