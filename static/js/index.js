@@ -63,7 +63,10 @@ $('.submit-like').on('click', function() {
 });
 
 $('.card__main-image').on('dblclick', function() {
-  console.log('dblclick');
+  var $unlikedHeart = $(this).closest('.view-update').find('.fa-heart-o');
+  if($unlikedHeart) {
+    $unlikedHeart.click();
+  }
 })
 
 
@@ -83,6 +86,12 @@ $('.card__main-image').on('dblclick', function() {
 function enterPressed(e) {
   if (e.key === "Enter") { return true; }
   return false;
+}
+
+
+function validComment(text) {
+  if (text == '') return false;
+  return true;
 }
 
 
@@ -118,8 +127,10 @@ function comment_update_view(data) {
 
 $('.add-comment').on('keyup', function(e) {
   if (enterPressed(e)) {
-    create_comment.call(this, comment_update_view, error_cb);
-    $(this).val('');
+    if (validComment($(this).val())) {
+      create_comment.call(this, comment_update_view, error_cb);
+      $(this).val('');
+    }
   }
 });
 

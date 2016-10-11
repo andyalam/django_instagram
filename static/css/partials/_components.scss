@@ -1,5 +1,13 @@
+html {
+  height: 100%;
+}
 body {
+  min-height: 100%;
   background-color: #fafafa;
+  &.white {
+    background-color: #fff;
+    .content-wrapper { background-color: #fff; }
+  }
 }
 
 a:hover {
@@ -10,6 +18,9 @@ a:hover {
   margin-top: 51px;
   margin-bottom: 60px;
   background-color: #fafafa;
+  @media screen and (max-width : 768px) {
+    margin-top: 50px;
+  }
 }
 
 .picture-circle {

@@ -24,8 +24,16 @@
     border-color: #3897f0;
     color: #3897f0; }
 
+html {
+  height: 100%; }
+
 body {
+  min-height: 100%;
   background-color: #fafafa; }
+  body.white {
+    background-color: #fff; }
+    body.white .content-wrapper {
+      background-color: #fff; }
 
 a:hover {
   text-decoration: none; }
@@ -34,6 +42,9 @@ a:hover {
   margin-top: 51px;
   margin-bottom: 60px;
   background-color: #fafafa; }
+  @media screen and (max-width: 768px) {
+    .content-wrapper {
+      margin-top: 50px; } }
 
 .picture-circle, .picture-circle--medium, .picture-circle--small {
   border-radius: 100%;
@@ -318,6 +329,23 @@ a:hover {
       width: 100%;
       border: none;
       outline: none; }
+
+.profile-settings {
+  margin-top: 60px;
+  border-top: 1px solid #dbdbdb; }
+  @media screen and (min-width: 768px) {
+    .profile-settings {
+      max-width: 60%;
+      margin: 0 auto;
+      border-top: none; } }
+
+.profile-pic-name {
+  padding: 30px 0; }
+  .profile-pic-name span {
+    font-size: 24px;
+    font-weight: bold;
+    vertical-align: middle;
+    margin-left: 32px; }
 
 .profile {
   max-width: 975px;

@@ -1,29 +1,32 @@
 {% extends 'feeds/base.html' %}
 
-{% load static %}
+{% load static custom_tags %}
 
+{% block body_class_override %}white{% endblock %}
 {% block content %}
-<div class="row">
+<div class="row profile-settings">
   <div class="col-xs-12">
-    {% if user.userprofile.profile_pic %}
-      <img class="picture-circle--medium" src="{{ user.userprofile.profile_pic.url }}">
-    {% else %}
-      <img class="picture-circle--medium" src="{% static 'images/profile_placeholder.jpg' %}">
-    {% endif %}
-    <h1 class="username">{{ user.username }}</h1>
+    <div class="profile-pic-name">
+      {% if user.userprofile.profile_pic %}
+        <img class="picture-circle--medium" src="{{ user.userprofile.profile_pic.url }}">
+      {% else %}
+        <img class="picture-circle--medium" src="{% static 'images/profile_placeholder.jpg' %}">
+      {% endif %}
+      <span class="username">{{ user.username }}</span>
+    </div>
     <form action="" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      <label>
+      <div class="form-group">
         {{ form.profile_pic.label }}
         {{ form.profile_pic }}
         {{ form.profile_pic.errors }}
-      </label>
-      <label>
-        {{ form.description.label }}
-        {{ form.description }}
+      </div>
+      <div class="form-group">
+        {{ form.description.label }}<br>
+        {{ form.description|addClass:"form-control" }}
         {{ form.description.errors }}
-      </label>
-      <button type="submit" class="btn btn-default">Save</button>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </div>
 </div>

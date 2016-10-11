@@ -217,3 +217,22 @@
     }
   }
 }
+
+.profile-settings {
+  margin-top: 60px;
+  border-top: 1px solid #dbdbdb;
+  @media screen and (min-width: 768px) {
+    max-width: 60%;
+    margin: 0 auto;
+    border-top: none;
+  }
+}
+.profile-pic-name {
+  padding: 30px 0;
+  span {
+    font-size: 24px;
+    font-weight: bold;
+    vertical-align: middle;
+    margin-left: 32px;
+  }
+}

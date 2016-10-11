@@ -10,7 +10,7 @@
     <link href="{% static 'vendor/font-awesome-4.6.3/css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
   </head>
-  <body>
+  <body class="{% block body_class_override %}{% endblock %}">
     {% include 'feeds/nav.html' %}
 
     <div class="content-wrapper">
