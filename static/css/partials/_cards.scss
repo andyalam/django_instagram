@@ -47,6 +47,9 @@
     .likes {
       font-weight: bold;
       margin-bottom: 5px;
+      a {
+        color: #333;
+      }
     }
     .view-more {
       @include grey-anchor();
@@ -79,7 +82,9 @@
   }
   .likes {
     font-weight: bold;
-    color: #333;
+    a {
+      color: #333;
+    }
   }
   .timestamp {
     float: right;

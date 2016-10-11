@@ -180,6 +180,17 @@ def post(request, pk):
     return render(request, 'feeds/post.html', context)
 
 
+def likes(request, pk):
+    likes = IGPost.objects.get(pk=pk).like_set.all()
+    profiles = [like.user.userprofile for like in likes]
+
+    context = {
+        'header': 'Likes',
+        'profiles': profiles
+    }
+    return render(request, 'feeds/follow_list.html', context)
+
+
 @ajax_request
 @login_required
 def add_like(request):

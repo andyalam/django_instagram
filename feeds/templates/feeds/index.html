@@ -26,7 +26,9 @@
                     <div class="card__panel-body">
                         <div class="likes">
                           {% if post.get_number_of_likes %}
-                            {{ post.get_number_of_likes }} like{% if post.get_number_of_likes > 1 %}s{% endif %}
+                            <a href="{% url 'likes' post.pk %}">
+                              {{ post.get_number_of_likes }} like{% if post.get_number_of_likes > 1 %}s{% endif %}
+                            </a>
                           {% endif %}
                         </div>
                         <ul class="comment-list">

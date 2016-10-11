@@ -184,6 +184,8 @@ a:hover {
     .card__panel-body .likes {
       font-weight: bold;
       margin-bottom: 5px; }
+      .card__panel-body .likes a {
+        color: #333; }
     .card__panel-body .view-more {
       color: #333; }
       .card__panel-body .view-more:hover {
@@ -213,8 +215,9 @@ a:hover {
   .likes-timestamp-row > div {
     display: inline-block; }
   .likes-timestamp-row .likes {
-    font-weight: bold;
-    color: #333; }
+    font-weight: bold; }
+    .likes-timestamp-row .likes a {
+      color: #333; }
   .likes-timestamp-row .timestamp {
     float: right; }
 

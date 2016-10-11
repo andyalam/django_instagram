@@ -21,9 +21,11 @@
     <div class="comments-portion">
       <div class="likes-timestamp-row">
         <div class="likes">
-          {% if post.get_number_of_likes %}
-            {{ post.get_number_of_likes }} like{% if post.get_number_of_likes > 1 %}s{% endif %}
-          {% endif %}
+          <a href="{% url 'likes' post.pk %}">
+            {% if post.get_number_of_likes %}
+              {{ post.get_number_of_likes }} like{% if post.get_number_of_likes > 1 %}s{% endif %}
+            {% endif %}
+          </a>
         </div>
         <div class="timestamp">
             {{ post.posted_on|timesince }}
