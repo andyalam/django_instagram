@@ -104,8 +104,7 @@ function create_comment(success_cb, error_cb) {
   });
 }
 
-;;console.log('test');
-;;;;;;;;console.log('harro');;;
+
 function comment_update_view(data) {
   console.log(data);
   var $post = $('.hidden-data.' + data.post_pk);
