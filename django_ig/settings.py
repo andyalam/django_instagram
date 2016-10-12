@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
     'imagekit',
     'annoying',
     'feeds',
@@ -54,6 +55,14 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'django_ig.urls'
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "ROUTING": "django_ig.routing.channel_routing",
+    },
+}
 
 TEMPLATES = [
     {
