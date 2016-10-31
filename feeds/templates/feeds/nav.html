@@ -11,8 +11,9 @@
         <div id="navbar-main" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'post_picture' %}">Post</a></li>
+                    <li><a href="{% url 'index' %}">Feed</a></li>
                     <li><a href="{% url 'explore' %}">Explore</a></li>
+                    <li><a href="{% url 'post_picture' %}">Post</a></li>
                     <li><a href="{% url 'notifications' %}">Notifications</a></li>
                     <li><a href="{% url 'profile' request.user.username %}">Profile</a></li>
                     <li><a href="{% url 'signout' %}">Signout</a></li>
