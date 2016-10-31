@@ -14,7 +14,7 @@ from imagekit.models import ProcessedImageField
 from annoying.decorators import ajax_request
 
 from . forms import UserCreateForm, PostPictureForm, ProfileEditForm, CommentForm
-from . models import UserProfile, IGPost, Comment, Like
+from . models import UserProfile, IGPost, Comment, Like, Message
 
 
 def index(request):
@@ -41,7 +41,12 @@ def notifications(request):
 
 
 def inbox(request):
-    context = {}
+    user = request.user
+    messages = Message.objects.filter(receiver=user)
+
+    context = {
+        'messages': messages
+    }
     return render(request, 'feeds/inbox.html', context)
 
 

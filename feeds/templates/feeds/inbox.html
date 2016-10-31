@@ -1,5 +1,11 @@
 {% extends 'feeds/base.html' %}
 
 {% block content %}
-inbox messages here
+
+  {% for message in messages %}
+    R:{{ message.receiver.username }}<br>
+    S:{{ message.sender.username }}<br>
+    Text: {{ message.text }}<br><br>
+  {% endfor %}
+
 {% endblock %}
