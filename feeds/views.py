@@ -40,6 +40,11 @@ def notifications(request):
     return render(request, 'feeds/notifications.html', context)
 
 
+def inbox(request):
+    context = {}
+    return render(request, 'feeds/inbox.html', context)
+
+
 def signup(request):
     form = UserCreateForm()
 
