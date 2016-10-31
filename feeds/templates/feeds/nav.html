@@ -14,7 +14,7 @@
                     <li><a href="{% url 'post_picture' %}">Post</a></li>
                     <li><a href="{% url 'explore' %}">Explore</a></li>
                     <li><a href="{% url 'notifications' %}">Notifications</a></li>
-                    <li><a href="{% url 'profile' user.username %}">Profile</a></li>
+                    <li><a href="{% url 'profile' request.user.username %}">Profile</a></li>
                     <li><a href="{% url 'signout' %}">Signout</a></li>
                 {% else %}
                     <li><a href="{% url 'login' %}">Login</a></li>
