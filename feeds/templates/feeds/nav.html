@@ -11,12 +11,16 @@
         <div id="navbar-main" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'index' %}">Feed</a></li>
-                    <li><a href="{% url 'explore' %}">Explore</a></li>
-                    <li><a href="{% url 'post_picture' %}">Post</a></li>
-                    <li><a href="{% url 'notifications' %}">Notifications</a></li>
-                    <li><a href="{% url 'profile' user.username %}">Profile</a></li>
-                    <li><a href="{% url 'signout' %}">Signout</a></li>
+                    <li><a href="{% url 'index' %}"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+                    <li><a href="{% url 'explore' %}"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                    <li><a href="{% url 'post_picture' %}"><i class="fa fa-upload" aria-hidden="true"></i></a></li>
+                    <li><a href="{% url 'notifications' %}"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+                    <li><a href="{% url 'profile' request.user.username %}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                    <li><a href="{% url 'inbox' %}"><i class="fa fa-inbox" aria-hidden="true"></i></a></li>
+                    <!--
+                      Using profile page logout for now
+                      <li><a href="{% url 'signout' %}">Signout</a></li>
+                    -->
                 {% else %}
                     <li><a href="{% url 'login' %}">Login</a></li>
                     <li><a href="{% url 'signup' %}">Signup</a></li>

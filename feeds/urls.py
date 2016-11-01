@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^post/$', views.post_picture, name='post_picture'),
     url(r'^explore/$', views.explore, name='explore'),
     url(r'^notifications/$', views.notifications, name='notifications'),
+    url(r'^inbox/$', views.inbox, name='inbox'),
     url(r'^post/(?P<pk>\d+)/likes/$', views.likes, name='likes'),
     url(r'^like/$', views.add_like, name='like'),
     url(r'^comment/$', views.add_comment, name='comment'),

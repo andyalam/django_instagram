@@ -78,5 +78,11 @@ class Like(models.Model):
         return 'Like: ' + self.user.username + ' ' + self.post.title
 
 
-"""class Notification(models.Model):
-    user = models.ForeignKey(User)"""
+
+class Message(models.Model):
+    receiver = models.ForeignKey(User, related_name="receiver")
+    sender = models.ForeignKey(User, related_name="sender")
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text + " S:" + self.sender.username + " ///  R: " + self.receiver.username
