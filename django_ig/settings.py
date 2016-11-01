@@ -59,7 +59,10 @@ ROOT_URLCONF = 'django_ig.urls'
 
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "asgiref.inmemory.ChannelLayer",
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": ["localhost:6379"],
+        },
         "ROUTING": "django_ig.routing.channel_routing",
     },
 }
