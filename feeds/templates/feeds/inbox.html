@@ -1,5 +1,7 @@
 {% extends 'feeds/base.html' %}
 
+{% load static %}
+
 {% block content %}
 
   {% for message in messages %}
@@ -7,5 +9,12 @@
     S:{{ message.sender.username }}<br>
     Text: {{ message.text }}<br><br>
   {% endfor %}
+  <ul id="messages">
+  </ul>
 
+{% endblock %}
+
+
+{% block extrascript %}
+<script src="{% static 'js/inbox.js' %}"></script>
 {% endblock %}
