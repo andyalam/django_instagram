@@ -35,11 +35,13 @@ def explore(request):
     return render(request, 'feeds/explore.html', context)
 
 
+@login_required
 def notifications(request):
     context = {}
     return render(request, 'feeds/notifications.html', context)
 
 
+@login_required
 def inbox(request):
     user = request.user
     messages = Message.objects.filter(receiver=user)
