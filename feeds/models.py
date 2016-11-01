@@ -76,3 +76,7 @@ class Like(models.Model):
 
     def __str__(self):
         return 'Like: ' + self.user.username + ' ' + self.post.title
+
+
+"""class Notification(models.Model):
+    user = models.ForeignKey(User)"""
