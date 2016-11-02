@@ -6,9 +6,8 @@ $(document).ready(function() {
     }
   });
 
-  // Note that the path doesn't matter right now; any WebSocket
-  // connection gets bumped over to WebSocket consumers
-  socket = new WebSocket("ws://" + window.location.host + "/chat/");
+  var sessionKey = $('#sessionKey').text();
+  socket = new WebSocket("ws://" + window.location.host + "/chat/?" + sessionKey);
   socket.onmessage = function(e) {
       var message = e.data;
       console.log(message);
