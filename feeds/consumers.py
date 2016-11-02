@@ -29,12 +29,17 @@ def ws_receive(message):
     room_label = path.replace('/chat/inbox/', '').replace('/', '')
     room = Room.objects.get(label=room_label)
     data = json.loads(message['text'])
-    print(data)
+    username = data['user']
+    text = data['message']
 
     sender = User.objects.get(username=data['user'])
-    text = data['message']
     m = room.messages.create(sender=sender, text=text)
-    Group('chat-'+ room_label).send({'text': m.text})
+
+    context = {
+        'text': m.text,
+        'user': sender.username
+    }
+    Group('chat-'+ room_label).send({'text': json.dumps(context) })
 
 
 # Connected to websocket.disconnect

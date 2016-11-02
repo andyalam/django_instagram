@@ -4,7 +4,8 @@ $(document).ready(function() {
 
   socket.onmessage = function(message) {
       console.log(message);
-      var html = "S:" + message.user + "<br> Text:" + message.data + "<br><br>";
+      var data = JSON.parse(message.data);
+      var html = "S:" + data.user + "<br> Text:" + data.text + "<br><br>";
       $("#messages").append(html);
   }
 
