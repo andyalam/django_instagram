@@ -1,0 +1,32 @@
+{% extends 'feeds/base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <a href="{% url 'inbox' %}">back</a><br><br>
+
+  <div id="messages">
+    {% for message in messages %}
+      S:{{ message.sender.username }}<br>
+      Text: {{ message.text }}<br><br>
+    {% endfor %}
+  </div>
+
+  <div id="session-key" style="display: none">
+    {{ request.session.session_key }}
+  </div>
+
+  <form id="chatForm">
+    <div id="chatData" style="display: none">
+      <span id="session-key">{{ request.session.session_key }}</span>
+      <span id="user">{{ request.user.username }}</span>
+    </div>
+    <input type="text" id="messageInput">
+  </form>
+
+{% endblock %}
+
+
+{% block extrascript %}
+<script src="{% static 'js/inbox.js' %}"></script>
+{% endblock %}

@@ -1,8 +1,11 @@
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 from channels.handler import AsgiHandler
 from channels import Channel, Group
 from channels.sessions import channel_session
 from channels.auth import http_session_user, channel_session_user, channel_session_user_from_http
+from .models import Room, Message
+import json
 
 """
 @channel_session, provides message.chanel_session
@@ -10,18 +13,32 @@ from channels.auth import http_session_user, channel_session_user, channel_sessi
 
 # Connected to websocket.connect
 @channel_session_user_from_http
-def ws_add(message):
-    # Add them to the right group
-    Group("chat-%s" % message.user.username[0]).add(message.reply_channel)
+def ws_connect(message):
+    path = message.content['path']
+    room_label = path.replace('/chat/inbox/', '').replace('/', '')
+    room = Room.objects.get(label=room_label)
+
+    Group('chat-' + room_label).add(message.reply_channel)
+    message.channel_session['room'] = room.label
+
 
 # Connected to websocket.receive
 @channel_session_user
-def ws_message(message):
-    Group("chat-%s" % message.user.username[0]).send({
-        "text": message['text'],
-    })
+def ws_receive(message):
+    path = message.content['path']
+    room_label = path.replace('/chat/inbox/', '').replace('/', '')
+    room = Room.objects.get(label=room_label)
+    data = json.loads(message['text'])
+    print(data)
+
+    sender = User.objects.get(username=data['user'])
+    text = data['message']
+    m = room.messages.create(sender=sender, text=text)
+    Group('chat-'+ room_label).send({'text': m.text})
+
 
 # Connected to websocket.disconnect
 @channel_session_user
 def ws_disconnect(message):
-    Group("chat-%s" % message.user.username[0]).discard(message.reply_channel)
+    label = message.channel_session['room']
+    Group('chat-'+label).discard(message.reply_channel)

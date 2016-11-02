@@ -1,10 +1,10 @@
 from channels.routing import route
 from channels import include
-from feeds.consumers import ws_message, ws_add, ws_disconnect
+from feeds.consumers import ws_connect, ws_receive, ws_disconnect
 
 chat_routing = [
-    route("websocket.connect", ws_add),
-    route("websocket.receive", ws_message),
+    route("websocket.connect", ws_connect),
+    route("websocket.receive", ws_receive),
     route("websocket.disconnect", ws_disconnect)
 ]
 

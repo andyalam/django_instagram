@@ -1,24 +1,31 @@
 $(document).ready(function() {
-  $("#messageInput").on('keypress', function(e) {
-    if (e.which == 13) {
-      socket.send($(this).val());
-      $(this).val('');
-    }
-  });
-
   var sessionKey = $('#sessionKey').text();
-  socket = new WebSocket("ws://" + window.location.host + "/chat/?" + sessionKey);
-  socket.onmessage = function(e) {
-      var message = e.data;
+  socket = new WebSocket("ws://" + window.location.host + "/chat" + window.location.pathname);
+
+  socket.onmessage = function(message) {
       console.log(message);
-      $("#messages").append("<li>" + message + "</li>");
-      console.log('test');
+      var html = "S:" + message.user + "<br> Text:" + message.data + "<br><br>";
+      $("#messages").append(html);
   }
+
   socket.onopen = function() {
       console.log("socked opened");
   }
+
   // Call onopen directly if socket is already open
   if (socket.readyState == WebSocket.OPEN) socket.onopen();
 
-  // socket.send('test');
+  $("#messageInput").on('keypress', function(e) {
+    if (e.which == 13) {
+      var message = {
+          user: $('#user').text(),
+          message: $('#messageInput').val()
+      }
+
+      socket.send(JSON.stringify(message));
+      $(this).val('');
+
+      return false;
+    }
+  });
 });

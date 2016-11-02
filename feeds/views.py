@@ -14,7 +14,7 @@ from imagekit.models import ProcessedImageField
 from annoying.decorators import ajax_request
 
 from . forms import UserCreateForm, PostPictureForm, ProfileEditForm, CommentForm
-from . models import UserProfile, IGPost, Comment, Like, Message
+from . models import UserProfile, IGPost, Comment, Like, Message, Room
 
 
 def index(request):
@@ -44,12 +44,24 @@ def notifications(request):
 @login_required
 def inbox(request):
     user = request.user
-    messages = Message.objects.filter(receiver=user)
-
+    rooms = Room.objects.filter(Q(receiver=user) | Q(sender=user))
     context = {
-        'messages': messages
+        'rooms': rooms
     }
     return render(request, 'feeds/inbox.html', context)
+
+
+@login_required
+def chat(request, label):
+    user = request.user
+    room = Room.objects.get(label=label)
+    messages = reversed(room.messages.order_by('-timestamp')[:50])
+
+    context = {
+        'room': room,
+        'messages': messages
+    }
+    return render(request, 'feeds/chat.html', context)
 
 
 def signup(request):

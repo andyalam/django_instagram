@@ -5,6 +5,7 @@ from django.contrib.auth.models import User, BaseUserManager, AbstractBaseUser, 
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 
+from datetime import datetime
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
@@ -78,11 +79,21 @@ class Like(models.Model):
         return 'Like: ' + self.user.username + ' ' + self.post.title
 
 
-
-class Message(models.Model):
+class Room(models.Model):
+    name = models.TextField()
+    label = models.SlugField(unique=True)
     receiver = models.ForeignKey(User, related_name="receiver")
     sender = models.ForeignKey(User, related_name="sender")
-    text = models.TextField()
 
     def __str__(self):
-        return self.text + " S:" + self.sender.username + " ///  R: " + self.receiver.username
+        return self.name + ': ' + self.label
+
+
+class Message(models.Model):
+    room = models.ForeignKey(Room, related_name="messages")
+    sender = models.ForeignKey(User)
+    text = models.TextField()
+    timestamp = models.DateTimeField(default=datetime.now, db_index=True)
+
+    def __str__(self):
+        return self.text + " S:" + self.sender.username
