@@ -169,6 +169,7 @@ a:hover {
   border: 1px solid #efefef;
   border-radius: 3px; }
   .card__panel-head {
+    background: #fff;
     padding: 14px 20px 12px; }
     .card__panel-head .poster__profilepic {
       border-radius: 100%;

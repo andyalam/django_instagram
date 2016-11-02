@@ -17,6 +17,14 @@ def is_following(users_profile, profile_to_check):
     return users_profile.following.filter(user_id=profile_to_check.user_id).exists()
 
 
+@register.simple_tag
+def find_proper_user(user, room):
+    if room.receiver == user:
+        return room.sender
+    else:
+        return room.receiver
+
+
 @register.filter(name='addClass')
 def addClass(field, css):
    return field.as_widget(attrs={"class":css})

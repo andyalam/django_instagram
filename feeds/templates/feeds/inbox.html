@@ -1,11 +1,26 @@
 {% extends 'feeds/base.html' %}
 
-{% load static %}
+{% load static custom_tags %}
 
 {% block content %}
+<div class="row">
 
   {% for room in rooms %}
-    <a href="{% url 'chat' room.label %}">{{ room.name }}</a><br>
+    {% find_proper_user request.user room as user_for_display %}
+    <a href="{% url 'chat' room.label %}">
+      <div class="card__panel-head message">
+        <div class="poster__info">
+          {% if user_for_display.userprofile.profile_pic %}
+            <img src="{{ user_for_display.userprofile.profile_pic.url }}">
+          {% else %}
+            <img class="picture-circle--medium" src="{% static 'images/profile_placeholder.jpg' %}">
+          {% endif %}
+          <span class="poster__name">{{ user_for_display.username }}</span>
+        </div>
+      </div>
+    </a>
   {% endfor %}
+
+</div>
 
 {% endblock %}
