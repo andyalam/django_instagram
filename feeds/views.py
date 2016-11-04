@@ -71,10 +71,13 @@ def signup(request):
         form = UserCreateForm(request.POST)
         if form.is_valid():
             form.save()
-
             user = User.objects.get(username=request.POST['username'])
             profile = UserProfile(user=user)
             profile.save()
+
+            new_user = authenticate(username=form.cleaned_data['username'],
+                                    password=form.cleaned_data['password1'])
+            login(request, new_user)
             return redirect('index')
 
     return render(request, 'feeds/signup.html', {
