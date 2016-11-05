@@ -85,6 +85,14 @@ class Room(models.Model):
     receiver = models.ForeignKey(User, related_name="receiver")
     sender = models.ForeignKey(User, related_name="sender")
 
+    def get_last_message(self):
+        message = Message.objects.filter(room=self).last()
+        return message.text
+
+    def get_last_message_timestamp(self):
+        message = Message.objects.filter(room=self).last()
+        return message.timestamp
+
     def __str__(self):
         return self.name + ': ' + self.label
 

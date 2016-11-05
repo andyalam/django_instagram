@@ -135,6 +135,26 @@ a:hover {
     .upload-mobile-link {
       display: block; } }
 
+.message {
+  position: relative; }
+  .message:not(:last-of-type) {
+    border-bottom: 1px solid #ccc; }
+  .message .message-info {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 10px; }
+    .message .message-info .username, .message .message-info .text {
+      margin: 0; }
+    .message .message-info .username {
+      color: #333; }
+    .message .message-info .text {
+      color: #ccc; }
+  .message .timestamp {
+    position: absolute;
+    top: 14px;
+    right: 5px;
+    color: #333; }
+
 .navbar {
   background-color: #fff;
   border-bottom-color: #dbdbdb; }

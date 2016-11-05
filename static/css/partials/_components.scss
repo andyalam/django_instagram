@@ -134,3 +134,31 @@ a:hover {
     display: block;
   }
 }
+
+
+.message {
+  position: relative;
+  &:not(:last-of-type) {
+    border-bottom: 1px solid #ccc;
+  }
+  .message-info {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 10px;
+    .username, .text{
+      margin: 0;
+    }
+    .username {
+      color: #333;
+    }
+    .text {
+      color: #ccc;
+    }
+  }
+  .timestamp {
+    position: absolute;
+    top: 14px;
+    right: 5px;
+    color: #333;
+  }
+}

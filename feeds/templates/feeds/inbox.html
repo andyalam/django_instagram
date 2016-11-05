@@ -7,18 +7,22 @@
 
   {% for room in rooms %}
     {% find_proper_user request.user room as user_for_display %}
-    <a href="{% url 'chat' room.label %}">
-      <div class="card__panel-head message">
+    <div class="card__panel-head message">
+      <a href="{% url 'chat' room.label %}">
         <div class="poster__info">
           {% if user_for_display.userprofile.profile_pic %}
             <img src="{{ user_for_display.userprofile.profile_pic.url }}">
           {% else %}
             <img class="picture-circle--medium" src="{% static 'images/profile_placeholder.jpg' %}">
           {% endif %}
-          <span class="poster__name">{{ user_for_display.username }}</span>
+          <div class="message-info">
+            <p class="username">{{ user_for_display.username }}</p>
+            <p class="text">{{ room.get_last_message|truncatechars:30 }}</p>
+          </div>
+          <div class="timestamp">{{ room.get_last_message_timestamp }}</div>
         </div>
-      </div>
-    </a>
+      </a>
+    </div>
   {% endfor %}
 
 </div>
