@@ -155,6 +155,38 @@ a:hover {
     right: 5px;
     color: #333; }
 
+.message-sent, .message-received {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 4px;
+  max-width: 75%;
+  margin: 15px auto; }
+
+.message-sent {
+  text-align: right;
+  margin-left: 25%;
+  background: #f3f3f3; }
+
+.message-received {
+  position: relative;
+  margin-right: 25%;
+  margin-top: 30px; }
+  .message-received .sender {
+    position: absolute;
+    top: -18px;
+    left: 0;
+    color: #999;
+    font-size: 12px; }
+
+#chatForm {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%; }
+  #chatForm input {
+    width: 100%;
+    padding: 15px; }
+
 .navbar {
   background-color: #fff;
   border-bottom-color: #dbdbdb; }

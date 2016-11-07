@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  // scroll instantly to bottom of messages on load
+  $(window).scrollTop($(document).height());
+
   var sessionKey = $('#sessionKey').text();
   socket = new WebSocket("ws://" + window.location.host + "/chat" + window.location.pathname);
 
@@ -7,6 +10,9 @@ $(document).ready(function() {
       var data = JSON.parse(message.data);
       var html = "S:" + data.user + "<br> Text:" + data.text + "<br><br>";
       $("#messages").append(html);
+
+      // scroll instantly to bottom of page upon new message receival
+      $(window).scrollTop($(document).height());
   }
 
   socket.onopen = function() {
