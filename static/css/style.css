@@ -135,6 +135,14 @@ a:hover {
     .upload-mobile-link {
       display: block; } }
 
+#messages {
+  max-width: 600px;
+  margin: 0 auto; }
+  #messages .back-button {
+    color: #333;
+    margin-top: 10px;
+    font-size: 20px; }
+
 .message {
   position: relative; }
   .message:not(:last-of-type) {
@@ -182,10 +190,14 @@ a:hover {
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 100%; }
+  width: 100%;
+  text-align: center; }
   #chatForm input {
     width: 100%;
-    padding: 15px; }
+    max-width: 600px;
+    padding: 15px;
+    border: none;
+    border-top: 1px solid #ccc; }
 
 .navbar {
   background-color: #fff;

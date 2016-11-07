@@ -137,6 +137,15 @@ a:hover {
 
 
 // specific to chat listings page
+#messages  {
+  max-width: 600px;
+  margin: 0 auto;
+  .back-button {
+    color: #333;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}
 .message {
   position: relative;
   &:not(:last-of-type) {
@@ -198,8 +207,12 @@ a:hover {
   bottom: 0;
   right: 0;
   width: 100%;
+  text-align: center;
   input {
     width: 100%;
+    max-width: 600px;
     padding: 15px;
+    border: none;
+    border-top: 1px solid #ccc;
   }
 }
