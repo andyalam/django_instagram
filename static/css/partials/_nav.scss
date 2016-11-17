@@ -12,11 +12,18 @@
     a, a:hover, a:focus {
       color: #333;
     }
-    .col-xs-3 {
+    .col-xs-2 {
       text-align: center;
+      min-height: 50px;
       .fa {
         font-size: 25px;
         margin-top: 13px;
+      }
+      &.inbox {
+        background: #333;
+        .fa {
+          color: #fff;
+        }
       }
     }
   }

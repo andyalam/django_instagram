@@ -209,11 +209,16 @@ a:hover {
     display: none; }
     .navbar .mobile a, .navbar .mobile a:hover, .navbar .mobile a:focus {
       color: #333; }
-    .navbar .mobile .col-xs-3 {
-      text-align: center; }
-      .navbar .mobile .col-xs-3 .fa {
+    .navbar .mobile .col-xs-2 {
+      text-align: center;
+      min-height: 50px; }
+      .navbar .mobile .col-xs-2 .fa {
         font-size: 25px;
         margin-top: 13px; }
+      .navbar .mobile .col-xs-2.inbox {
+        background: #333; }
+        .navbar .mobile .col-xs-2.inbox .fa {
+          color: #fff; }
   .navbar .navbar-brand:not(:first-of-type) {
     float: right; }
   @media screen and (max-width: 768px) {
