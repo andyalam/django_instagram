@@ -4,7 +4,10 @@
 
   .fa {
     font-size: 25px;
-    color: #333;
+    color: #333 * 3;
+    &.active {
+      color: #333;
+    }
   }
 
   .mobile {

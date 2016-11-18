@@ -184,7 +184,9 @@ a:hover {
   border-bottom-color: #dbdbdb; }
   .navbar .fa {
     font-size: 25px;
-    color: #333; }
+    color: #999999; }
+    .navbar .fa.active {
+      color: #333; }
   .navbar .mobile {
     display: none; }
     .navbar .mobile a, .navbar .mobile a:hover, .navbar .mobile a:focus {
