@@ -36,7 +36,7 @@
                             <a class="user" href="{% url 'profile' post.user_profile.user.username %}">
                               {{ post.user_profile.user.username }}
                             </a>
-                            <span class="comment">{{ post.title }}</span>
+                            <span class="comment">{{ post.title | parse_hashtags | safe }}</span>
                           </li>
                           <a class="view-more"></a>
                           {% for comment in post.comment_set.all %}

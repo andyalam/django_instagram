@@ -5,7 +5,6 @@
 {% block body_class_override %}white{% endblock %}
 {% block content %}
   <div id="messages">
-    <a href="{% url 'inbox' %}" class="back-button"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
     {% for message in messages %}
       <div class="{% if request.user == message.sender %}message-sent{% else %}message-received{% endif %}">
         {% if request.user != message.sender %}<div class="sender">{{ message.sender.username }}</div>{% endif %}

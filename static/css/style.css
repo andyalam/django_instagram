@@ -200,6 +200,14 @@ a:hover {
         margin-top: 13px; }
   .navbar .navbar-brand:not(:first-of-type) {
     float: right; }
+  .navbar#mobile-top-nav .item-right {
+    float: right;
+    padding: 15px; }
+  .navbar#mobile-top-nav .back-button .fa {
+    padding: 16px 15px 15px;
+    font-size: 16px; }
+    .navbar#mobile-top-nav .back-button .fa:hover {
+      cursor: pointer; }
   @media screen and (max-width: 768px) {
     .navbar#main-nav {
       top: initial;

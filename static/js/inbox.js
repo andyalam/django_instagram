@@ -1,6 +1,9 @@
 $(document).ready(function() {
   // scroll instantly to bottom of messages on load
   $(window).scrollTop($(document).height());
+  if ($(window).width() < 768) {
+    $('#main-nav').remove();
+  }
 
   var sessionKey = $('#sessionKey').text();
   socket = new WebSocket("ws://" + window.location.host + "/chat" + window.location.pathname);
@@ -9,7 +12,7 @@ $(document).ready(function() {
       console.log(message);
       var data = JSON.parse(message.data);
       var currentUser = $('#chatData #user').text();
-      
+
       var html;
       if (data.user == currentUser) {
         html = "<div class='message-sent'><div class='text'>" + data.text + "</div></div>";

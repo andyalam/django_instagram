@@ -190,3 +190,20 @@ $('.follow-toggle__container').on('click', '.follow-user', function() {
 $('.follow-toggle__container').on('click', '.unfollow-user', function() {
   follow_user.call(this, update_unfollow_view, error_cb, 'unfollow');
 });
+
+
+
+
+
+
+
+/*
+ *
+ *    General
+ *
+ */
+
+ // mobile back button
+ $('.back-button').on('click', function() {
+   window.history.back();
+ })
