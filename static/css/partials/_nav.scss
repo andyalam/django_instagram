@@ -12,18 +12,13 @@
     a, a:hover, a:focus {
       color: #333;
     }
-    .col-xs-2 {
+    .col-xs-3 {
       text-align: center;
       min-height: 50px;
+      width: 20%;
       .fa {
         font-size: 25px;
         margin-top: 13px;
-      }
-      &.inbox {
-        background: #333;
-        .fa {
-          color: #fff;
-        }
       }
     }
   }
@@ -33,6 +28,12 @@
   }
 
   @media screen and (max-width: 768px) {
+    &#main-nav {
+      top: initial;
+      bottom: 0;
+      margin: 0;
+      border-top: 1px solid #ccc;
+    }
     .desktop {
       display: none;
     }

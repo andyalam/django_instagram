@@ -115,26 +115,6 @@ a:hover {
     .mobile-block {
       display: block; } }
 
-.upload-mobile-link {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center; }
-  .upload-mobile-link .fa {
-    font-size: 30px;
-    color: #fff;
-    margin-bottom: 15px;
-    height: 55px;
-    width: 55px;
-    background-color: #333;
-    border-radius: 100%;
-    padding-top: 13px; }
-  @media screen and (max-width: 768px) {
-    .upload-mobile-link {
-      display: block; } }
-
 #messages {
   max-width: 600px;
   margin: 0 auto; }
@@ -209,19 +189,21 @@ a:hover {
     display: none; }
     .navbar .mobile a, .navbar .mobile a:hover, .navbar .mobile a:focus {
       color: #333; }
-    .navbar .mobile .col-xs-2 {
+    .navbar .mobile .col-xs-3 {
       text-align: center;
-      min-height: 50px; }
-      .navbar .mobile .col-xs-2 .fa {
+      min-height: 50px;
+      width: 20%; }
+      .navbar .mobile .col-xs-3 .fa {
         font-size: 25px;
         margin-top: 13px; }
-      .navbar .mobile .col-xs-2.inbox {
-        background: #333; }
-        .navbar .mobile .col-xs-2.inbox .fa {
-          color: #fff; }
   .navbar .navbar-brand:not(:first-of-type) {
     float: right; }
   @media screen and (max-width: 768px) {
+    .navbar#main-nav {
+      top: initial;
+      bottom: 0;
+      margin: 0;
+      border-top: 1px solid #ccc; }
     .navbar .desktop {
       display: none; }
     .navbar .mobile {

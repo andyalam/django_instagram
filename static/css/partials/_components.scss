@@ -112,29 +112,6 @@ a:hover {
   }
 }
 
-.upload-mobile-link {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  .fa {
-    font-size: 30px;
-    color: #fff;
-    margin-bottom: 15px;
-    height: 55px;
-    width: 55px;
-    background-color: #333;
-    border-radius: 100%;
-    padding-top: 13px;
-  }
-
-  @media screen and (max-width: 768px) {
-    display: block;
-  }
-}
-
 
 // specific to chat listings page
 #messages  {
