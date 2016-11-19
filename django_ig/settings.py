@@ -53,6 +53,10 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Django standard middlewares above
+
+    # Custom middlewares below
+    'feeds.middleware.login_required_middleware.FilterUnauthUsers',
 ]
 
 ROOT_URLCONF = 'django_ig.urls'
