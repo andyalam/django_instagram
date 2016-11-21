@@ -20,7 +20,13 @@ from . models import UserProfile, IGPost, Comment, Like, Message, Room
 def index(request):
     if not request.user.is_authenticated():
         redirect('login')
-    posts = IGPost.objects.order_by('-posted_on')
+
+    # Only return posts from users that are being followed, test this later
+    # for performance / improvement
+    users_followed = request.user.userprofile.following.all()
+    posts = IGPost.objects.filter(
+                user_profile__in=users_followed).order_by('-posted_on')
+
     return render(request, 'feeds/index.html', {
         'posts': posts
     })

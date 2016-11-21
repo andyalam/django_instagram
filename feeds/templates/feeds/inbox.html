@@ -11,7 +11,7 @@
       <a href="{% url 'chat' room.label %}">
         <div class="poster__info">
           {% if user_for_display.userprofile.profile_pic %}
-            <img src="{{ user_for_display.userprofile.profile_pic.url }}">
+            <img class="picture-circle--medium" src="{{ user_for_display.userprofile.profile_pic.url }}">
           {% else %}
             <img class="picture-circle--medium" src="{% static 'images/profile_placeholder.jpg' %}">
           {% endif %}
