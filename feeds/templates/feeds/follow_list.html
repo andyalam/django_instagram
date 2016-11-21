@@ -16,17 +16,17 @@
       {% endif %}
       <a href="{% url 'profile' profile.user.username %}">{{ profile.user.username }}</a>
 
-      {% if request.user.is_authenticated %}
-      <div class="follow-toggle__container">
-        {% is_following request.user.userprofile profile as following %}
-        <button class="btn btn-primary {% if not following %}follow-user{% else %}unfollow-user{% endif %}">
-          {% if not following %}
-            Follow
-          {% else %}
-            Following
-          {% endif %}
-        </button>
-      </div>
+      {% if request.user.is_authenticated and profile != request.user.userprofile %}
+        <div class="follow-toggle__container">
+          {% is_following request.user.userprofile profile as following %}
+          <button class="btn btn-primary {% if not following %}follow-user{% else %}unfollow-user{% endif %}">
+            {% if not following %}
+              Follow
+            {% else %}
+              Following
+            {% endif %}
+          </button>
+        </div>
       {% endif %}
     </div>
   {% endfor %}
