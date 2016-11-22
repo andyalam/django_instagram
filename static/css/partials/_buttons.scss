@@ -1,4 +1,4 @@
-.unfollow-user, .follow-user {
+.unfollow-user, .follow-user, .generic-button {
   font-weight: bold;
   font-size: 15px;
   outline: none;
@@ -18,7 +18,7 @@
   }
 }
 
-.follow-user {
+.follow-user, .generic-button {
   background-color: #fff;
   border-color: #3897f0;
   color: #3897f0;

@@ -79,8 +79,11 @@
         <a href="/" class="navbar-brand">Django IG</a>
         <a href="{% url 'inbox' %}"><i class="fa fa-inbox active item-right" aria-hidden="true"></i></a>
     </div>
-  {% elif request.resolver_match.url_name == 'post' or request.resolver_match.url_name == 'post_picture' or request.resolver_match.url_name == 'inbox' or request.resolver_match.url_name == 'chat' %}
+  {% elif request.resolver_match.url_name == 'post' or request.resolver_match.url_name == 'post_picture' or request.resolver_match.url_name == 'chat' %}
     <a class="back-button"><i class="fa fa-arrow-left active"></i></a>
+  {% elif request.resolver_match.url_name == 'inbox' %}
+    <a class="back-button"><i class="fa fa-arrow-left active"></i></a>
+    <a class="new-message" href="{% url 'new_chat' %}"><i class="fa fa-plus active"></i></a>
   {% else %}
     <div class="navbar-header">
         <a href="/" class="navbar-brand">Django IG</a>

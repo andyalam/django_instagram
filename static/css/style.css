@@ -1,4 +1,4 @@
-.unfollow-user, .follow-user {
+.unfollow-user, .follow-user, .generic-button {
   font-weight: bold;
   font-size: 15px;
   outline: none; }
@@ -14,12 +14,12 @@
     background-color: #5a9a40;
     border-color: #5a9a40; }
 
-.follow-user {
+.follow-user, .generic-button {
   background-color: #fff;
   border-color: #3897f0;
   color: #3897f0;
   padding: 4px 38px; }
-  .follow-user:hover, .follow-user:active, .follow-user:focus {
+  .follow-user:hover, .follow-user:active, .follow-user:focus, .generic-button:hover, .generic-button:active, .generic-button:focus {
     background-color: #fff;
     border-color: #3897f0;
     color: #3897f0; }
@@ -203,11 +203,13 @@ a:hover {
   .navbar#mobile-top-nav .item-right {
     float: right;
     padding: 15px; }
-  .navbar#mobile-top-nav .back-button .fa {
+  .navbar#mobile-top-nav .back-button .fa, .navbar#mobile-top-nav .new-message .fa {
     padding: 16px 15px 15px;
     font-size: 16px; }
-    .navbar#mobile-top-nav .back-button .fa:hover {
+    .navbar#mobile-top-nav .back-button .fa:hover, .navbar#mobile-top-nav .new-message .fa:hover {
       cursor: pointer; }
+  .navbar#mobile-top-nav .new-message {
+    float: right; }
   @media screen and (max-width: 768px) {
     .navbar#main-nav {
       top: initial;
@@ -218,6 +220,12 @@ a:hover {
       display: none; }
     .navbar .mobile {
       display: block; } }
+
+.back-button .fa {
+  color: #333;
+  margin-right: 15px; }
+.back-button:hover {
+  cursor: pointer; }
 
 .cards-listing {
   max-width: 600px;

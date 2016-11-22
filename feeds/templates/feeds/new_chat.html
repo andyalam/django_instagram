@@ -1,0 +1,27 @@
+{% extends 'feeds/base.html' %}
+
+{% load static custom_tags %}
+
+{% block content %}
+<div class="follow__wrapper row">
+  <div class="follow__heading">
+    <a class="back-button"><i class="fa fa-arrow-left active"></i></a>Select a profile
+  </div>
+  {% for profile in profiles %}
+    <div class="follow__card" id="{{ profile.pk }}">
+      {% if profile.profile_pic %}
+        <img class="picture-circle--small" src="{{ profile.profile_pic.url }}">
+      {% else %}
+        <img class="picture-circle--small" src="{% static 'images/profile_placeholder.jpg' %}">
+      {% endif %}
+      <a href="{% url 'profile' profile.user.username %}">{{ profile.user.username }}</a>
+
+      {% if request.user.is_authenticated and profile != request.user.userprofile %}
+        <div class="follow-toggle__container">
+          <button class="btn btn-primary generic-button">Message</button>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

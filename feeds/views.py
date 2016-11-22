@@ -70,6 +70,15 @@ def chat(request, label):
     return render(request, 'feeds/chat.html', context)
 
 
+@login_required
+def new_chat(request):
+    profiles = request.user.userprofile.following.all()
+    context = {
+        'profiles': profiles
+    }
+    return render(request, 'feeds/new_chat.html', context)
+
+
 def signup(request):
     form = UserCreateForm()
 
