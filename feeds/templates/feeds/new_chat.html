@@ -18,7 +18,9 @@
 
       {% if request.user.is_authenticated and profile != request.user.userprofile %}
         <div class="follow-toggle__container">
-          <button class="btn btn-primary generic-button">Message</button>
+          <a href="{% url 'new_chat_create' profile.user.username %}">
+            <button class="btn btn-primary generic-button">Message</button>
+          </a>
         </div>
       {% endif %}
     </div>

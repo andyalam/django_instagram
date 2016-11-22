@@ -79,6 +79,21 @@ def new_chat(request):
     return render(request, 'feeds/new_chat.html', context)
 
 
+@login_required
+def new_chat_create(request, username):
+    user_to_message = User.objects.get(username=username)
+    room_label = request.user.username + '_' + user_to_message.username
+
+    try:
+        does_room_exist = Room.objects.get(label=room_label)
+    except:
+        room = Room(name='1', label=room_label, receiver=user_to_message,
+                    sender=request.user)
+        room.save()
+
+    return redirect('chat', label=room_label)
+
+
 def signup(request):
     form = UserCreateForm()
 
