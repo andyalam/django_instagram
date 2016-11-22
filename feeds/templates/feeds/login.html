@@ -1,25 +1,29 @@
 {% extends 'feeds/base.html' %}
 
-{% load staticfiles %}
+{% load staticfiles custom_tags %}
 
+{% block body_class_override %}white{% endblock %}
 {% block content %}
+<div class="row auth-form">
+  <div class="col-xs-12">
     <form action="{% url 'login' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
-            <label>
-                {{ form.username.label }}
-                {{ form.username }}
-                {{ form.username.errors }}
-            </label>
+          {{ form.username.label }}
+          {{ form.username|addClass:"form-control" }}
+          {{ form.username.errors }}
         </div>
         <div class="form-group">
-            <label>
-                {{ form.password.label }}
-                {{ form.password }}
-                {{ form.password.errors }}
-            </label>
+          {{ form.password.label }}
+          {{ form.password|addClass:"form-control" }}
+          {{ form.password.errors }}
         </div>
 
-        <button class="btn btn-default">Submit</button>
+        <button class="btn btn-default">Login</button>
+        <div class="text-center help-text">
+          Don't have an account? <a href="{% url 'signup' %}">Register</a>
+        </div>
     </form>
+  </div>
+</div>
 {% endblock %}

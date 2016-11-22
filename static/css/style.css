@@ -403,14 +403,15 @@ a:hover {
       border: none;
       outline: none; }
 
+@media screen and (min-width: 768px) {
+  .profile-settings, .auth-form {
+    max-width: 60%;
+    margin: 0 auto;
+    border-top: none; } }
+
 .profile-settings {
   margin-top: 60px;
   border-top: 1px solid #dbdbdb; }
-  @media screen and (min-width: 768px) {
-    .profile-settings {
-      max-width: 60%;
-      margin: 0 auto;
-      border-top: none; } }
 
 .profile-pic-name {
   padding: 30px 0; }
@@ -419,6 +420,13 @@ a:hover {
     font-weight: bold;
     vertical-align: middle;
     margin-left: 32px; }
+
+.auth-form .btn {
+  width: 100%;
+  margin-bottom: 15px;
+  font-weight: bold; }
+.auth-form .help-text {
+  font-size: 12px; }
 
 .profile {
   max-width: 975px;
