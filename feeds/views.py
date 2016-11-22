@@ -87,7 +87,7 @@ def new_chat_create(request, username):
     try:
         does_room_exist = Room.objects.get(label=room_label)
     except:
-        room = Room(name='1', label=room_label, receiver=user_to_message,
+        room = Room(label=room_label, receiver=user_to_message,
                     sender=request.user)
         room.save()
 

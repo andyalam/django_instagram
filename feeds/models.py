@@ -80,7 +80,6 @@ class Like(models.Model):
 
 
 class Room(models.Model):
-    name = models.TextField()
     label = models.SlugField(unique=True)
     receiver = models.ForeignKey(User, related_name="receiver")
     sender = models.ForeignKey(User, related_name="sender")
@@ -94,7 +93,7 @@ class Room(models.Model):
         return message.timestamp if message else ""
 
     def __str__(self):
-        return self.name + ': ' + self.label
+        return self.label
 
 
 class Message(models.Model):
