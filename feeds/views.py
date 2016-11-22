@@ -290,14 +290,17 @@ def follow_toggle(request):
     follow_profile = UserProfile.objects.get(pk=follow_profile_pk)
 
     try:
-        if request.POST.get('type') == 'follow':
-            user_profile.following.add(follow_profile)
-            follow_profile.followers.add(user_profile)
-        elif request.POST.get('type') == 'unfollow':
-            user_profile.following.remove(follow_profile)
-            follow_profile.followers.remove(user_profile)
-        user_profile.save()
-        result = 1
+        if user_profile != follow_profile:
+            if request.POST.get('type') == 'follow':
+                user_profile.following.add(follow_profile)
+                follow_profile.followers.add(user_profile)
+            elif request.POST.get('type') == 'unfollow':
+                user_profile.following.remove(follow_profile)
+                follow_profile.followers.remove(user_profile)
+            user_profile.save()
+            result = 1
+        else:
+            result = 0
     except Exception as e:
         print(e)
         result = 0
