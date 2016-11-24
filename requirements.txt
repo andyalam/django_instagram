@@ -2,4 +2,3 @@ django_annoying==0.8.1
 channels==0.17.3
 Django==1.10.3
 django_imagekit==3.3
-imagekit==1.0.0

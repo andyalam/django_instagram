@@ -10,7 +10,7 @@ Channels requires a redis server to be running, more info can be found about Dja
 
 Install dependencies
 
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
 
 Ensure that [Redis](http://redis.io/) is installed and running on port 6379 (default).
 
