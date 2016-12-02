@@ -5,6 +5,11 @@
 {% block content %}
 <div class="row">
 
+  <div class="controls desktop">
+    <div class="right">
+      <a class="new-message" href="{% url 'new_chat' %}"><i class="fa fa-plus active"></i></a>
+    </div>
+  </div>
   {% for room in rooms %}
     {% find_proper_user request.user room as user_for_display %}
     <div class="card__panel-head message">

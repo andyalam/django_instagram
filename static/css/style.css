@@ -179,6 +179,20 @@ a:hover {
     border: none;
     border-top: 1px solid #ccc; }
 
+.controls {
+  background: #fff; }
+  .controls .right {
+    text-align: right; }
+  .controls a {
+    color: #333; }
+  .controls .new-message {
+    font-size: 25px; }
+    .controls .new-message .fa {
+      padding: 15px; }
+  @media (max-width: 768px) {
+    .controls.desktop {
+      display: none; } }
+
 .navbar {
   background-color: #fff;
   border-bottom-color: #dbdbdb; }

@@ -193,3 +193,22 @@ a:hover {
     border-top: 1px solid #ccc;
   }
 }
+
+.controls {
+  background: #fff;
+  .right {
+    text-align: right;
+  }
+  a {
+    color: #333;
+  }
+  .new-message {
+    font-size: 25px;
+    .fa {
+      padding: 15px;
+    }
+  }
+  @media (max-width: 768px) {
+    &.desktop { display: none; }
+  }
+}
