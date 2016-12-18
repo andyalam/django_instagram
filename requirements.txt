@@ -1,5 +1,6 @@
-django_annoying==0.8.1
+django_annoying==0.10.3
 channels==0.17.3
 Django==1.10.3
 django_imagekit==3.3
 Pillow==3.4.2
+asgi_redis==1.0.0
