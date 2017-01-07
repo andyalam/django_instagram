@@ -6,7 +6,7 @@ $(document).ready(function() {
   }
 
   var sessionKey = $('#sessionKey').text();
-  socket = new WebSocket("ws://" + window.location.host + "/chat" + window.location.pathname);
+  socket = new WebSocket("wss://" + window.location.host + "/chat" + window.location.pathname);
 
   socket.onmessage = function(message) {
       console.log(message);
