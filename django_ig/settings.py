@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'imagekit',
     'annoying',
     'feeds',
+    'storages',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -158,3 +159,7 @@ try:
     from local_settings import *
 except ImportError as e:
     pass
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
