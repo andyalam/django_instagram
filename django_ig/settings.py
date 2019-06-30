@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'imagekit',
     'annoying',
     'feeds',
+    'storages',
 ]
 
 MIDDLEWARE_CLASSES = [
