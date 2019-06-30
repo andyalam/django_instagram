@@ -1,4 +1,3 @@
-modified
 Django IG
 ==========
 
