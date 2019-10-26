@@ -19,6 +19,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    # this is for admin page
     url(r'^admin/', admin.site.urls),
+    # this is for homepage
     url(r'^', include('feeds.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
